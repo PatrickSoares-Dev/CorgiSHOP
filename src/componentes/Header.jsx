@@ -3,6 +3,9 @@ import { HeartIcon, ShoppingCartIcon, EnvelopeIcon, PhoneIcon, UserIcon, FlagIco
 import React, { useEffect } from 'react';
 import '../index.css';
 
+import Brasil from '../assets/img/brasil.png'
+import Logo from '../assets/img/logo3.png'
+
 const Header = () => {
   useEffect(() => {
     // Obtém uma referência para o botão e para a dropdown
@@ -54,7 +57,7 @@ const Header = () => {
                         data-dropdown-toggle="language-dropdown-menu"
                         className="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-white rounded-lg cursor-pointer hover:bg-sky-800 dark:hover:bg-gray-700 dark:hover:text-white"
                         >
-                        <img src="./src/assets/img/brasil.png" alt="Bandeira do Brasil" className="w-7 h-5 mr-2" />
+                        <img src={Brasil} alt="Bandeira do Brasil" className="w-7 h-5 mr-2" />
                         Português (BR)
                         </button>
                         <a href="#" className="flex items-center text-base ml-4 text-white">
@@ -70,13 +73,13 @@ const Header = () => {
                 
                 <a href="/">
                     <div style={{ clipPath: 'polygon(0 1%, 45% 0, 100% 100%, 0% 100%)', marginLeft: '-20px' }} className="bg-white w-48">
-                        <img className="w-auto w-15 h-24" src="./src/assets/img/logo2.png" />
+                        <img className="w-auto w-15 h-24" src={Logo} />
                     </div>
                 </a>
 
                 <div class="flex">
                     <div class="relative w-72 ml-10">
-                        <button id="dropdown-button" data-dropdown-toggle="dropdown" class="flex z-10 inline-flex items-center py-2.5 px-3 text-sm sm:text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" type="button">Todas as categorias<svg aria-hidden="true" class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>
+                        <button id="dropdown-button" data-dropdown-toggle="dropdown" class="z-10 inline-flex items-center py-2.5 px-3 text-sm sm:text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" type="button">Todas as categorias<svg aria-hidden="true" class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>
                         <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-full dark:bg-gray-700 absolute left-0 mt-1">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
                             <li>
@@ -91,7 +94,7 @@ const Header = () => {
                         </ul>
                         </div>
                     </div>
-                    <div class="relative w-full w-96">
+                    <div class="relative w-full">
                         <input type="search" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300   dark:bg-gray-700 dark:border-l-gray-400  dark:border-gray-400 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="Procure por Roupas, Acessórios ..." />
                         <button type="submit" class="absolute top-0 right-0 p-2.5 text-sm font-medium text-black-500 bg-orange-200 rounded-r-lg border border-gray-300 hover:bg-orange-300  focus:outline-none  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>

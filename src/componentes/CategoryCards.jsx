@@ -1,5 +1,9 @@
 import React from 'react';
 
+import Product01 from '../assets/img/Products/1.png'
+import Product02 from '../assets/img/Products/2.png'
+import Product03 from '../assets/img/Products/3.png'
+
 const CategoryCards = () => {
 
     return (   
@@ -16,21 +20,21 @@ const CategoryCards = () => {
           <div>
             <img
               className="object-cover w-full h-64 mb-6 rounded shadow-lg lg:h-80 xl:h-96"
-              src="./src/assets/img/Products/1.png"
+              src={Product01}
               alt=""
             />
           </div>
           <div>
             <img
               className="object-cover w-full h-64 mb-6 rounded shadow-lg lg:h-80 xl:h-96"
-              src="./src/assets/img/Products/2.png"
+              src={Product02}
               alt=""
             />
           </div>
           <div>
             <img
               className="object-cover w-full h-64 mb-6 rounded shadow-lg lg:h-80 xl:h-96"
-              src="./src/assets/img/Products/3.png"
+              src={Product03}
               alt=""
             />
           </div>

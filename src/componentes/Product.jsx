@@ -3,67 +3,73 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+import roupinhaChucky1 from '../assets/img/Products/Roupinha-chucky/roupinha-chucky1.png';
+import roupinhaChucky2 from '../assets/img/Products/Roupinha-chucky/roupinha-chucky2.png';
+import brinquedoBola2 from '../assets/img/Products/brinquedobola2.png';
+import coleira from '../assets/img/Products/coleira.png';
+import corgiShark from '../assets/img/Products/corgi-shark.jpg';
+
 const Product = () => {
   const products = [
     {
       name_product: 'Roupinha Chucky',
       value_product: 'R$ 79,99',
       value_off: 'R$ 99,99',
-      img_product: './src/assets/img/Products/Roupinha-chucky/roupinha-chucky1.png',
-      hover_img_product: './src/assets/img/Products/Roupinha-chucky/roupinha-chucky2.png',
+      img_product: roupinhaChucky1,
+      hover_img_product: roupinhaChucky2,
     },
 
     {
       name_product: 'Brinquedo de bola azul',
       value_product: 'R$ 49,99',
       value_off: 'R$ 69,99',
-      img_product: './src/assets/img/Products/brinquedobola2.png',
-      hover_img_product: './src/assets/img/Products/brinquedobola2.png',
+      img_product: brinquedoBola2,
+      hover_img_product: brinquedoBola2,
     },
 
     {
       name_product: 'Coleira peitoral',
       value_product: 'R$ 29,99',
       value_off: 'R$ 49,99',
-      img_product: './src/assets/img/Products/coleira.png',
-      hover_img_product: './src/assets/img/Products/coleira.png',
+      img_product: coleira,
+      hover_img_product: coleira,
     },
 
     {
       name_product: 'Corgi SHARK',
       value_product: 'R$ 79,99',
       value_off: 'R$ 99,99',
-      img_product: './src/assets/img/Products/corgi-shark.jpg',
-      hover_img_product: './src/assets/img/Products/corgi-shark.jpg',
+      img_product: corgiShark,
+      hover_img_product: corgiShark,
     },
 
     {
       name_product: 'Roupinha Chucky',
       value_product: 'R$ 79,99',
       value_off: 'R$ 99,99',
-      img_product: './src/assets/img/Products/Roupinha-chucky/roupinha-chucky1.png',
-      hover_img_product: './src/assets/img/Products/Roupinha-chucky/roupinha-chucky2.png',
+      img_product: roupinhaChucky1,
+      hover_img_product: roupinhaChucky2,
     },
     {
       name_product: 'Roupinha Chucky',
       value_product: 'R$ 79,99',
       value_off: 'R$ 99,99',
-      img_product: './src/assets/img/Products/Roupinha-chucky/roupinha-chucky1.png',
-      hover_img_product: './src/assets/img/Products/Roupinha-chucky/roupinha-chucky2.png',
+      img_product: roupinhaChucky1,
+      hover_img_product: roupinhaChucky2,
     },
     {
       name_product: 'Roupinha Chucky',
       value_product: 'R$ 79,99',
       value_off: 'R$ 99,99',
-      img_product: './src/assets/img/Products/Roupinha-chucky/roupinha-chucky1.png',
-      hover_img_product: './src/assets/img/Products/Roupinha-chucky/roupinha-chucky2.png',
+      img_product: roupinhaChucky1,
+      hover_img_product: roupinhaChucky2,
     },
     {
       name_product: 'Roupinha Chucky',
       value_product: 'R$ 79,99',
       value_off: 'R$ 99,99',
-      img_product: './src/assets/img/Products/Roupinha-chucky/roupinha-chucky1.png',
-      hover_img_product: './src/assets/img/Products/Roupinha-chucky/roupinha-chucky2.png',
+      img_product: roupinhaChucky1,
+      hover_img_product: roupinhaChucky2,
     },
     // Resto dos produtos
   ];

@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
+import Banner01 from '../assets/img/Banner01.png';
+import Banner02 from '../assets/img/Banner02.png';
+
 const Banner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
     {
-      image: './src/assets/img/Banner01.png',
+      image: Banner01,
     },
     {
-      image: './src/assets/img/Banner01.png',
+      image: Banner01,
     },
   ];
 
@@ -47,7 +50,7 @@ const Banner = () => {
         <div className="w-4/12 max-w-screen-1xl mr-12 border-4">
           <div className="bg-gray-200 h-96">
             <img
-              src="./src/assets/img/Banner02.png"
+              src={Banner02}
               alt="Slide estático"
               className="object-cover h-full w-full"
             />

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Caramelopng from '../assets/img/Products/Caramelo.png'
+
 const Newsletter = () => {
 
     return (
@@ -9,7 +11,7 @@ const Newsletter = () => {
             <div class="flex flex-wrap items-center">
                 <div class="grow-0 shrink-0 basis-auto hidden lg:flex lg:w-10/12 xl:w-4/12">
                 <img
-                    src="./src/assets/img/Products/Caramelo.png"
+                    src={Caramelopng}
                     alt="Trendy Pants and Shoes"
                     class="w-full h-full"
                 />
