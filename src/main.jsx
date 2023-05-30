@@ -13,7 +13,7 @@ import ProductPages from './routes/ProductPages.jsx';
 
 const router = createBrowserRouter([
  {
-  path: '/',
+  path: '/CorgiSHOP',
   element: <App/>
  },
 
