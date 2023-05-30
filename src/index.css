@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    overflow-x: hidden;
+  }
+
+/* 
+#F8C592: Utilize a classe -orange-300 para o plano de fundo com um tom de laranja claro.
+#38B6FF: Utilize a classe -sky-500 para o plano de fundo com um tom de azul brilhante.
+#69C1B3: Utilize a classe -teal-500 para o plano de fundo com um tom de verde-azulado claro.
+#248BC7: Utilize a classe -sky-700 para o plano de fundo com um tom de azul médio. 
+*/
