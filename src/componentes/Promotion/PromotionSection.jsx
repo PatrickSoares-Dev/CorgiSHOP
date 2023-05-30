@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import bannerImage from "../assets/img/Bannerpromotion.png";
+import bannerImage from "../../assets/img/Bannerpromotion.png";
 
 const PromotionSection = () => {
   const [days, setDays] = useState(2);

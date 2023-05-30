@@ -1,8 +1,8 @@
 import React from 'react'
-import Category from "../componentes/Category"
-import Header from "../componentes/Header"
-import Footer from '../componentes/Footer'
-import ViewProducts from '../componentes/ViewProducts'
+import Category from "../componentes/Category/Category"
+import Header from "../componentes/Header/Header"
+import Footer from '../componentes/Footer/Footer'
+import ViewProducts from '../componentes/Product/ViewProducts'
 
 
 const ProductPages = () =>{

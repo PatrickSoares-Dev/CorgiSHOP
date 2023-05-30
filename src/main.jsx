@@ -18,15 +18,18 @@ const router = createBrowserRouter([
  },
 
  {
-  path: '/productpages',
+  path: '/CorgiSHOP/productpages',
   element: <ProductPages/>
  },
 
 ])
 
+import { ThemeProvider } from "@material-tailwind/react";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+       <ThemeProvider>
+          <RouterProvider router={router} />
+       </ThemeProvider>
   </React.StrictMode>,
 )

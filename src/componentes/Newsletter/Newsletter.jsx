@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Caramelopng from '../assets/img/Products/Caramelo.png'
+import Caramelopng from '../../assets/img/Products/Caramelo.png'
 
 const Newsletter = () => {
 
@@ -18,10 +18,10 @@ const Newsletter = () => {
                 </div>
                 <div class="grow-0 shrink-0 basis-auto w-full lg:w-6/12 xl:w-8/12">
                 <div class="px-6 py-12 md:px-12">
-                    <h2 class="text-3xl font-bold mb-6">
+                    <h2 class="text-3xl font-bold mb-6 ">
                     Não perca nenhuma promoção
                     <br />
-                    <span class="text-sky-500">Se inscreva para novidades</span>
+                    <span class="text-light-blue-500">Se inscreva para novidades</span>
                     </h2>
                     <p class="text-gray-500 mb-12">
                     Receba as promoções em primeira mão
@@ -34,7 +34,7 @@ const Newsletter = () => {
                     />
                     <button
                         type="submit"
-                        class="inline-block px-7 py-3 bg-sky-500 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-sky-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                        class="inline-block px-7 py-3 bg-blue-500 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-sky-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                         data-mdb-ripple="true"
                         data-mdb-ripple-color="light"
                     >

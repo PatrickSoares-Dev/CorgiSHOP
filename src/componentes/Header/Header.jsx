@@ -1,10 +1,10 @@
 
 import { HeartIcon, ShoppingCartIcon, EnvelopeIcon, PhoneIcon, UserIcon, FlagIcon } from "@heroicons/react/24/solid";
 import React, { useEffect } from 'react';
-import '../index.css';
+import '../../index.css';
 
-import Brasil from '../assets/img/brasil.png'
-import Logo from '../assets/img/logo3.png'
+import Brasil from '../../assets/img/brasil.png'
+import Logo from '../../assets/img/logo3.png'
 
 const Header = () => {
   useEffect(() => {
@@ -36,7 +36,7 @@ const Header = () => {
   return (
     // Header secundário
         <div className="w-auto">
-           <nav className="bg-sky-700 border-gray-200 dark:bg-gray-900 justify-end w-full">
+           <nav className="bg-light-blue-900 border-gray-200 dark: justify-end w-full">
                 <div className="flex flex-wrap items-center max-w-screen-4xl p-1">
                     {/* Esquerda */}
                     <div className="flex items-center justify-self-start">
@@ -69,7 +69,7 @@ const Header = () => {
             </nav>
 
             {/* Header principal */}
-            <div className="flex h-24 bg-sky-500 justify-between items-center px-5 mt-1 border-b-4 border-grey-200 ">
+            <div className="flex h-24 bg-light-blue-600 justify-between items-center px-5 mt-1 border-b-4 border-grey-200 ">
                 
                 <a href="/">
                     <div style={{ clipPath: 'polygon(0 1%, 45% 0, 100% 100%, 0% 100%)', marginLeft: '-20px' }} className="bg-white w-48">

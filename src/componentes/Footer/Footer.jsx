@@ -4,7 +4,7 @@ const Footer = () => {
 
     return (
 
-        <footer aria-label="Site Footer" class="bg-sky-500">
+        <footer aria-label="Site Footer" class="bg-blue-500">
             <div
                 class="max-w-screen-xl px-4 py-8 mx-auto space-y-8 sm:px-6 lg:space-y-8 lg:px-8"
             >

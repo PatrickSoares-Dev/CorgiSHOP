@@ -3,11 +3,11 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import roupinhaChucky1 from '../assets/img/Products/Roupinha-chucky/roupinha-chucky1.png';
-import roupinhaChucky2 from '../assets/img/Products/Roupinha-chucky/roupinha-chucky2.png';
-import brinquedoBola2 from '../assets/img/Products/brinquedobola2.png';
-import coleira from '../assets/img/Products/coleira.png';
-import corgiShark from '../assets/img/Products/corgi-shark.jpg';
+import roupinhaChucky1 from '../../assets/img/Products/Roupinha-chucky/roupinha-chucky1.png';
+import roupinhaChucky2 from '../../assets/img/Products/Roupinha-chucky/roupinha-chucky2.png';
+import brinquedoBola2 from '../../assets/img/Products/brinquedobola2.png';
+import coleira from '../../assets/img/Products/coleira.png';
+import corgiShark from '../../assets/img/Products/corgi-shark.jpg';
 
 const Product = () => {
   const products = [
@@ -124,7 +124,7 @@ const Product = () => {
           >
             <a 
               className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
-              href="/productpages"
+              href="/CorgiSHOP/productpages"
             >
               <img
                 className="peer absolute top-0 right-0 h-full w-full object-cover"

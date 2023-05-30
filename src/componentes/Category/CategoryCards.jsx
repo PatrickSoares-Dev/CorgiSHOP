@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Product01 from '../assets/img/Products/1.png'
-import Product02 from '../assets/img/Products/2.png'
-import Product03 from '../assets/img/Products/3.png'
+import Product01 from '../../assets/img/Products/1.png'
+import Product02 from '../../assets/img/Products/2.png'
+import Product03 from '../../assets/img/Products/3.png'
 
 const CategoryCards = () => {
 
