@@ -1,10 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import Cart from '../Shopping Cart/Cart';
 import { HeartIcon, ShoppingCartIcon, EnvelopeIcon, PhoneIcon, UserIcon, FlagIcon } from "@heroicons/react/24/solid";
 import Login from '../Authentication/Authentication';
 import Brasil from '../../assets/img/brasil.png';
 import Logo from '../../assets/img/logo3.png';
 
 const Header = () => {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  };
+
   useEffect(() => {
     const dropdownButton = document.getElementById('dropdown-button');
     const dropdown = document.getElementById('dropdown');
@@ -25,6 +32,12 @@ const Header = () => {
       dropdownButton.removeEventListener('click', handleClick);
     };
   }, []);
+
+  useEffect(() => {
+    if (isCartOpen) {
+      // Lógica para abrir o carrinho aqui
+    }
+  }, [isCartOpen]);
 
   return (
     <div className="w-auto">
@@ -130,36 +143,31 @@ const Header = () => {
             >
               <svg
                 aria-hidden="true"
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+                className="w-5 h-5 ml-1"
+                fill="currentColor"
+                viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  fillRule="evenodd"
+                  d="M6.5 13h7.586l-2.293 2.293a1 1 0 001.414 1.414l4-4a1 1 0 000-1.414l-4-4a1 1 0 00-1.414 1.414L13.086 11H6.5a6.5 6.5 0 100 1z"
+                  clipRule="evenodd"
                 ></path>
               </svg>
-              <span className="sr-only">Search</span>
             </button>
           </div>
         </div>
-        <div className="flex justify-between relative">
-          <div className="relative">
-            <HeartIcon className="h-8 text-white m-2 hidden sm:block cursor-pointer" />
-            <span className="absolute top-0 right-0 h-5 w-5 flex items-center justify-center bg-red-500 rounded-full text-white text-xs" id="favoriteNumber">
-              3
-            </span>
-          </div>
-          <div className="relative">
-            <ShoppingCartIcon className="h-8 text-white m-2 hidden sm:block cursor-pointer" />
-            <span className="absolute top-0 right-0 h-5 w-5 flex items-center justify-center bg-red-500 rounded-full text-white text-xs" id="cartNumber">
-              5
-            </span>
-          </div>
+
+        <div className="relative">
+          <ShoppingCartIcon
+            className="h-8 text-white m-2 hidden sm:block cursor-pointer"
+            onClick={toggleCart}
+          />
+          <span className="absolute top-0 right-0 h-5 w-5 flex items-center justify-center bg-red-500 rounded-full text-white text-xs" id="cartNumber">
+            5
+          </span>
+
+          {isCartOpen && <Cart />}
         </div>
       </div>
     </div>
