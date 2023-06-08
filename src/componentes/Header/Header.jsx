@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Cart from '../Shopping Cart/Cart';
 import { HeartIcon, ShoppingCartIcon, EnvelopeIcon, PhoneIcon, UserIcon, FlagIcon } from "@heroicons/react/24/solid";
-import Login from '../Authentication/Authentication';
 import Brasil from '../../assets/img/brasil.png';
 import Logo from '../../assets/img/logo3.png';
 
@@ -63,7 +62,10 @@ const Header = () => {
               <img src={Brasil} alt="Bandeira do Brasil" className="w-7 h-5 mr-2" />
               Português (BR)
             </button>
-            <Login />
+            <a href="/CorgiSHOP/authentication" className="flex items-center text-base ml-4 text-white">
+              <UserIcon className="h-4 mr-2 mt-0" />
+              Login
+            </a>
           </div>
         </div>
       </nav>

@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ThemeProvider } from "@material-tailwind/react";
 import ProductPages from './routes/ProductPages.jsx';
 import Checkout from './routes/Checkout.jsx';
+import Authentication from './routes/Authentication.jsx';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: '/CorgiSHOP/checkout',
     element: <Checkout />
+  },
+  {
+    path: '/CorgiSHOP/authentication',
+    element: <Authentication />
   }
 ]);
 
