@@ -3,16 +3,20 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import roupinhaChucky1 from '../../assets/img/Products/Roupinha-chucky/roupinha-chucky1.png';
-import roupinhaChucky2 from '../../assets/img/Products/Roupinha-chucky/roupinha-chucky2.png';
-import brinquedoBola2 from '../../assets/img/Products/brinquedobola2.png';
-import coleira from '../../assets/img/Products/coleira.png';
-import corgiShark from '../../assets/img/Products/corgi-shark.jpg';
+import roupinhaChucky1 from '../../assets/img/Products/Roupinhas/Roupinha-chucky/roupinha-chucky1.png';
+import roupinhaChucky2 from '../../assets/img/Products/Roupinhas/Roupinha-chucky/roupinha-chucky2.png';
+import roupinhaLaCasa1 from '../../assets/img/Products/Roupinhas/Roupinha-lacasa/roupinha-laCasa2.jpg';
+import roupinhaLaCasa2 from '../../assets/img/Products/Roupinhas/Roupinha-lacasa/roupinha-laCasa3.jpg';
+import brinquedoBola1 from '../../assets/img/Products/Brinquedo/Brinquedo-bola/bola-corda1.jpg';
+import brinquedoBola2 from '../../assets/img/Products/Brinquedo/Brinquedo-bola/bola-corda2.jpg';
+import acessoriosArranhador1 from '../../assets/img/Products/Acessorios/Acessorio-arranhador/acessorio-arranhador1.jpg';
+import acessoriosArranhador2 from '../../assets/img/Products/Acessorios/Acessorio-arranhador/acessorio-arranhador2.jpg';
+
 
 const Product = () => {
   const products = [
     {
-      name_product: 'Roupinha Chucky',
+      name_product: 'Roupinha de terror Chucky',
       value_product: 'R$ 79,99',
       value_off: 'R$ 99,99',
       img_product: roupinhaChucky1,
@@ -20,57 +24,60 @@ const Product = () => {
     },
 
     {
-      name_product: 'Brinquedo de bola azul',
-      value_product: 'R$ 49,99',
-      value_off: 'R$ 69,99',
-      img_product: brinquedoBola2,
+      name_product: 'Roupa La Casa de Papel',
+      value_product: 'R$ 169,99',
+      value_off: 'R$ 209,99',
+      img_product: roupinhaLaCasa1,
+      hover_img_product: roupinhaLaCasa2,
+    },
+
+    {
+      name_product: 'Brinqued Bola de Corda Azul',
+      value_product: 'R$ 12,99',
+      value_off: 'R$ 24,99',
+      img_product: brinquedoBola1,
       hover_img_product: brinquedoBola2,
     },
 
     {
-      name_product: 'Coleira peitoral',
-      value_product: 'R$ 29,99',
+      name_product: 'Brinquedo Arranhador',
+      value_product: 'R$ 39,99',
       value_off: 'R$ 49,99',
-      img_product: coleira,
-      hover_img_product: coleira,
+      img_product: acessoriosArranhador1,
+      hover_img_product: acessoriosArranhador2,
+    },
+    {
+      name_product: 'Roupinha Chucky',
+      value_product: 'R$ 79,99',
+      value_off: 'R$ 99,99',
+      img_product: roupinhaChucky1,
+      hover_img_product: roupinhaChucky2,
     },
 
     {
-      name_product: 'Corgi SHARK',
-      value_product: 'R$ 79,99',
-      value_off: 'R$ 99,99',
-      img_product: corgiShark,
-      hover_img_product: corgiShark,
+      name_product: 'Capa de Chuva Future Pet La Casa de Papel',
+      value_product: 'R$ 169,99',
+      value_off: 'R$ 209,99',
+      img_product: roupinhaLaCasa1,
+      hover_img_product: roupinhaLaCasa2,
     },
 
     {
-      name_product: 'Roupinha Chucky',
-      value_product: 'R$ 79,99',
-      value_off: 'R$ 99,99',
-      img_product: roupinhaChucky1,
-      hover_img_product: roupinhaChucky2,
+      name_product: 'Brinquedo LCM Bola de Corda Verde',
+      value_product: 'R$ 12,99',
+      value_off: 'R$ 24,99',
+      img_product: brinquedoBola1,
+      hover_img_product: brinquedoBola2,
     },
+
     {
-      name_product: 'Roupinha Chucky',
-      value_product: 'R$ 79,99',
-      value_off: 'R$ 99,99',
-      img_product: roupinhaChucky1,
-      hover_img_product: roupinhaChucky2,
+      name_product: 'Brinquedo Arranhador Furacão Pet Papelão',
+      value_product: 'R$ 39,99',
+      value_off: 'R$ 49,99',
+      img_product: acessoriosArranhador1,
+      hover_img_product: acessoriosArranhador2,
     },
-    {
-      name_product: 'Roupinha Chucky',
-      value_product: 'R$ 79,99',
-      value_off: 'R$ 99,99',
-      img_product: roupinhaChucky1,
-      hover_img_product: roupinhaChucky2,
-    },
-    {
-      name_product: 'Roupinha Chucky',
-      value_product: 'R$ 79,99',
-      value_off: 'R$ 99,99',
-      img_product: roupinhaChucky1,
-      hover_img_product: roupinhaChucky2,
-    },
+    
     // Resto dos produtos
   ];
 

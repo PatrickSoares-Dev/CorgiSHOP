@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Chucky01 from '../../assets/img/Products/Roupinha-chucky/roupinha-chucky2.png'
-import Chucky02 from '../../assets/img/Products/Roupinha-chucky/roupinha-chucky2.png'
-import Chucky03 from '../../assets/img/Products/Roupinha-chucky/roupinha-chucky3.png'
-import Chucky04 from '../../assets/img/Products/Roupinha-chucky/roupinha-chucky4.png'
+import Chucky01 from '../../assets/img/Products/Roupinhas/Roupinha-chucky/roupinha-chucky2.png'
+import Chucky02 from '../../assets/img/Products/Roupinhas/Roupinha-chucky/roupinha-chucky2.png'
+import Chucky03 from '../../assets/img/Products/Roupinhas/Roupinha-chucky/roupinha-chucky3.png'
+import Chucky04 from '../../assets/img/Products/Roupinhas/Roupinha-chucky/roupinha-chucky4.png'
 
 const ViewProducts = () => {
   return (    

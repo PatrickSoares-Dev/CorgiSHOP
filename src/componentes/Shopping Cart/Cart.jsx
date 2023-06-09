@@ -2,9 +2,16 @@ import { Fragment, useState, useEffect } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { ShoppingCartIcon } from '@heroicons/react/24/solid';
-import roupinhaChucky1 from '../../assets/img/Products/Roupinha-chucky/roupinha-chucky1.png';
-import roupinhaChucky2 from '../../assets/img/Products/Roupinha-chucky/roupinha-chucky2.png';
-import brinquedoBola2 from '../../assets/img/Products/brinquedobola2.png';
+// import roupinhaChucky1 from '../../assets/img/Products/Roupinhas/Roupinha-chucky/roupinha-chucky1';
+// import roupinhaChucky2 from '../../assets/img/Products/Roupinhas/Roupinha-chucky/roupinha-chucky2';
+// import brinquedoBola1 from '../../assets/img/Products/Brinquedo/Brinquedo-porquinho/brinquedo-porquinho-chalesco1';
+// import brinquedoBola2 from '../../assets/img/Products/Brinquedo/Brinquedo-porquinho/brinquedo-porquinho-chalesco2';
+
+
+import roupinhaChucky1 from '../../assets/img/Products/Roupinhas/Roupinha-chucky/roupinha-chucky1.png';
+import roupinhaChucky2 from '../../assets/img/Products/Roupinhas/Roupinha-chucky/roupinha-chucky2.png';
+import roupinhaLaCasa1 from '../../assets/img/Products/Roupinhas/Roupinha-lacasa/roupinha-laCasa1.jpg';
+import roupinhaLaCasa2 from '../../assets/img/Products/Roupinhas/Roupinha-lacasa/roupinha-laCasa2.jpg';
 
 const products = [
   {
@@ -19,13 +26,13 @@ const products = [
   },
   {
     id: 2,
-    name: 'Brinquedo de bola azul',
+    name: 'Capa de Chuva Future Pet La Casa de Papel',
     href: '#',
     color: 'Unica',
-    price: 'R$ 49,99',
+    price: 'R$ 169,99',
     quantity: 1,
-    imageSrc: brinquedoBola2,
-    imageAlt: brinquedoBola2,
+    imageSrc: roupinhaLaCasa1,
+    imageAlt: roupinhaLaCasa2,
   },
 
 ];
