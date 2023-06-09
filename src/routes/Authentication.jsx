@@ -18,7 +18,7 @@ const AuthenticationPage = () => {
     <div className='bg-gray-100'>
       <Header/>    
       <Category/>
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center h-screen mt-4">
         {showLogin ? (
           <LoginForm
             key="login" // Adicionando a propriedade "key" para manter o foco nos cards de login e registro
@@ -41,8 +41,11 @@ const AuthenticationPage = () => {
           />
         )}
       </div>      
-      <Footer/>
+      <div className='mt-4'>
+        <Footer/>
+      </div>
     </div>
+ 
   );
 }
 

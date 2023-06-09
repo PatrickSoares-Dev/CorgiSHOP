@@ -103,7 +103,7 @@ const AuthenticationForm = ({ handleToggleForm }) => {
     handleInputChange(e);
   };
   return (
-    <div className='flex justify-center items-center h-screen mt-8 mb-8'>
+    <div className='flex justify-center items-center h-screen mt-16 mb-16'>
       <Card color="white" shadow="regular" className="p-4">
         <div className="flex">
           <div>
@@ -171,12 +171,12 @@ const AuthenticationForm = ({ handleToggleForm }) => {
                     color="gray"
                     className="flex items-center font-normal"
                   >
-                    Concordo com os{' '}
+                    Concordo com os {'  '}
                     <a
                       href="#"
                       className="font-medium transition-colors hover:text-blue-500"
                     >
-                      Termos e Condições
+                       Termos e Condições
                     </a>
                   </Typography>
                 }

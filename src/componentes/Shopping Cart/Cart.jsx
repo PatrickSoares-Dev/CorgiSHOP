@@ -27,7 +27,9 @@ const products = [
     imageSrc: brinquedoBola2,
     imageAlt: brinquedoBola2,
   },
+
 ];
+
 
 export default function Cart() {
   const [open, setOpen] = useState(true);

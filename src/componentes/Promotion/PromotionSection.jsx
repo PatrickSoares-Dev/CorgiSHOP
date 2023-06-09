@@ -59,10 +59,10 @@ const PromotionSection = () => {
                 minHeight: "460px", // Defina a altura mínima desejada aqui
                 }}
             >
-            <div className="container flex justify-center w-full">
+            <div className="container flex justify-center w-full ml-8">
                 <div className="w-full">
                     <div className="hot-deal">
-                    <ul className="hot-deal-countdown flex justify-center mb-6 ml-16 max-w-screen-4xl mx-auto">
+                    <ul className="hot-deal-countdown flex justify-center mb-6 ml-8 max-w-screen-4xl mx-auto">
                         <li className="relative inline-block w-24 h-24 bg-red-600 rounded-full mx-2">
                         <div className="absolute inset-0 flex items-center justify-center">
                             <div className="flex flex-col items-center">
@@ -104,14 +104,15 @@ const PromotionSection = () => {
                         </div>
                         </li>
                     </ul>
-                    <h2 className="text-uppercase text-center text-3xl font-bold mb-4 ml-16">
+                    <h2 className="text-uppercase text-center text-3xl font-bold mb-4 ml-8">
                         Oferta da semana
                     </h2>
-                    <p className="text-center text-xl uppercase ml-16">
-                        Nova coleção dos namorados com até 50% de desconto
+                    <p className="text-center text-xl uppercase ml-8">
+                        Nova coleção dos namorados <br></br>
+                        com até 50% de desconto
                     </p>
                     <a
-                        className="primary-btn cta-btn block w-48 mx-auto mt-6 px-6 py-3 text-center text-white uppercase bg-red-600 rounded-full hover:bg-red-00"
+                        className="primary-btn cta-btn block w-48 mx-auto mt-6 px-6 py-3  text-center text-white uppercase bg-red-600 rounded-full hover:bg-red-00"
                         href="#"
                     >
                         Compre agora

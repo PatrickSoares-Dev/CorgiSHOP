@@ -6,9 +6,13 @@ import Logo from '../../assets/img/logo3.png';
 
 const Header = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
-
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
+  };
+
+  const getEmailFromLocalStorage = () => {
+    return localStorage.getItem('email');
+
   };
 
   useEffect(() => {
@@ -38,6 +42,14 @@ const Header = () => {
     }
   }, [isCartOpen]);
 
+  useEffect(() => {
+    const email = getEmailFromLocalStorage();
+    console.log('Email armazenado no localStorage:', email);
+  }, []);
+
+  const email = getEmailFromLocalStorage();
+  const loginText = email ? 'Minha conta' : 'Login';
+
   return (
     <div className="w-auto">
       <nav className="bg-light-blue-900 border-gray-200 dark: justify-end w-full">
@@ -64,7 +76,7 @@ const Header = () => {
             </button>
             <a href="/CorgiSHOP/authentication" className="flex items-center text-base ml-4 text-white">
               <UserIcon className="h-4 mr-2 mt-0" />
-              Login
+              {loginText}
             </a>
           </div>
         </div>
