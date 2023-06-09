@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Card, Input, Checkbox, Button, Typography,
 } from "@material-tailwind/react";
 import corgiImage from '../../assets/img/dogregister.png';
+import axios from 'axios';
 
 const AuthenticationForm = ({ handleToggleForm }) => {
   const [name, setName] = useState('');
@@ -10,6 +11,8 @@ const AuthenticationForm = ({ handleToggleForm }) => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState({});
+  const [message, setMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -53,19 +56,54 @@ const AuthenticationForm = ({ handleToggleForm }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const sendRegister = async () => {
+    const data = {
+      name,
+      email,
+      password
+    };
 
-    if (validateForm()) {
-      // Realize o registro ou ação desejada aqui
+    const headers = {
+      'Content-Type': 'application/json'
+    };
 
-      // Após o registro bem-sucedido, exiba o formulário de login
-      handleToggleForm();
+    try {
+      const response = await axios.post('http://localhost:8080/register', data, headers);
+      setMessage(response.data.message);
+      setIsSuccess(true);
+    } catch (error) {
+      setMessage(error.response.data.message);
+      setIsSuccess(false);
     }
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (validateForm()) {
+      setIsSuccess(false); // Limpar o estado da mensagem de sucesso/erro
+      setMessage(''); // Limpar a mensagem
+
+      setMessage('Registrando usuário...');
+      setTimeout(async () => {
+        await sendRegister();
+      }, 2000);
+    }
+  };
+
+  useEffect(() => {
+    if (isSuccess) {
+      setTimeout(() => {
+        window.location.reload(); // Atualizar a página após 5 segundos
+      }, 5000);
+    }
+  }, [isSuccess]);
+
+  const valorInput = (e) => {
+    handleInputChange(e);
+  };
   return (
-    <div className='flex justify-center items-center h-screen'>
+    <div className='flex justify-center items-center h-screen mt-8 mb-8'>
       <Card color="white" shadow="regular" className="p-4">
         <div className="flex">
           <div>
@@ -78,14 +116,23 @@ const AuthenticationForm = ({ handleToggleForm }) => {
             <Typography color="gray" className="mt-1 font-normal">
               Digite seus dados para se registrar.
             </Typography>
-            <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96" onSubmit={handleSubmit}>
+            <form className="mt-2 mb-2 w-80 max-w-screen-lg sm:w-96" onSubmit={handleSubmit}>
+              {message && (
+                <div
+                  className={`text-white p-2 rounded mt-2 mb-4 ${
+                    isSuccess ? 'bg-green-400' : 'bg-yellow-700'
+                  }`}
+                >
+                  {message}
+                </div>
+              )}
               <div className="mb-4 flex flex-col gap-6">
                 <Input
                   size="lg"
                   label={`Nome${errors.name ? ` - ${errors.name}` : ''}`}
                   name="name"
                   value={name}
-                  onChange={handleInputChange}
+                  onChange={valorInput}
                   error={errors.name}
                 />
                 <Input
@@ -93,7 +140,7 @@ const AuthenticationForm = ({ handleToggleForm }) => {
                   label={`Email${errors.email ? ` - ${errors.email}` : ''}`}
                   name="email"
                   value={email}
-                  onChange={handleInputChange}
+                  onChange={valorInput}
                   error={errors.email}
                 />
                 <Input
@@ -102,36 +149,36 @@ const AuthenticationForm = ({ handleToggleForm }) => {
                   label={`Senha${errors.password ? ` - ${errors.password}` : ''}`}
                   name="password"
                   value={password}
-                  onChange={handleInputChange}
+                  onChange={valorInput}
                   error={errors.password}
                 />
                 <Input
                   type="password"
                   size="lg"
-                  label={`Confirmar senha${errors.confirmPassword ? ` - ${errors.confirmPassword}` : ''}`}
+                  label={`Confirmar senha${
+                    errors.confirmPassword ? ` - ${errors.confirmPassword}` : ''
+                  }`}
                   name="confirmPassword"
                   value={confirmPassword}
-                  onChange={handleInputChange}
+                  onChange={valorInput}
                   error={errors.confirmPassword}
                 />
               </div>
               <Checkbox
                 label={
-                  (
-                    <Typography
-                      variant="small"
-                      color="gray"
-                      className="flex items-center font-normal"
+                  <Typography
+                    variant="small"
+                    color="gray"
+                    className="flex items-center font-normal"
+                  >
+                    Concordo com os{' '}
+                    <a
+                      href="#"
+                      className="font-medium transition-colors hover:text-blue-500"
                     >
-                      Concordo com os
-                      <a
-                        href="#"
-                        className="font-medium transition-colors hover:text-blue-500"
-                      >
-                        &nbsp;Termos e Condições
-                      </a>
-                    </Typography>
-                  )
+                      Termos e Condições
+                    </a>
+                  </Typography>
                 }
                 containerProps={{ className: "-ml-2.5" }}
                 required
@@ -155,6 +202,6 @@ const AuthenticationForm = ({ handleToggleForm }) => {
       </Card>
     </div>
   );
-}
+};
 
 export default AuthenticationForm;

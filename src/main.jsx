@@ -8,6 +8,8 @@ import ProductPages from './routes/ProductPages.jsx';
 import Checkout from './routes/Checkout.jsx';
 import Authentication from './routes/Authentication.jsx';
 
+
+
 const router = createBrowserRouter([
   {
     path: '/CorgiSHOP',
