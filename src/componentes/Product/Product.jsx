@@ -55,7 +55,7 @@ const Product = () => {
     },
 
     {
-      name_product: 'Capa de Chuva Future Pet La Casa de Papel',
+      name_product: 'Roupa La Casa de Papel',
       value_product: 'R$ 169,99',
       value_off: 'R$ 209,99',
       img_product: roupinhaLaCasa1,
@@ -63,7 +63,7 @@ const Product = () => {
     },
 
     {
-      name_product: 'Brinquedo LCM Bola de Corda Verde',
+      name_product: 'Brinqued Bola de Corda Azul',
       value_product: 'R$ 12,99',
       value_off: 'R$ 24,99',
       img_product: brinquedoBola1,
@@ -71,33 +71,57 @@ const Product = () => {
     },
 
     {
-      name_product: 'Brinquedo Arranhador Furacão Pet Papelão',
+      name_product: 'Brinquedo Arranhador',
       value_product: 'R$ 39,99',
       value_off: 'R$ 49,99',
       img_product: acessoriosArranhador1,
       hover_img_product: acessoriosArranhador2,
     },
-    
-    // Resto dos produtos
+ 
   ];
 
   const PrevArrow = (props) => {
     const { className, onClick } = props;
     return (
-      <button className={`${className} absolute top-4 left-4 z-10 bg-blue-500  rounded-full p-2 shadow-md`} onClick={onClick}>
+      <button
+        className={`${className} prev-arrow absolute top-4 left-4 z-10 bg-blue-500 rounded-full p-2 shadow-md`}
+        onClick={onClick}
+        style={{
+          width: '30px',
+          height: '30px',
+          borderRadius: '50%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: 'white',
+        }}
+      >
         PREV
       </button>
     );
   };
-
+  
   const NextArrow = (props) => {
     const { className, onClick } = props;
     return (
-      <button className={`${className} absolute top-4  right-4 z-10 bg-blue-500  rounded-full p-2 shadow-md`} onClick={onClick}>
+      <button
+        className={`${className} next-arrow absolute top-4 right-4 z-2 bg-blue-500 rounded-full p-2 shadow-md`}
+        onClick={onClick}
+        style={{
+          width: '30px',
+          height: '30px',
+          borderRadius: '50%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: 'white',
+        }}
+      >
         NEXT
       </button>
     );
   };
+  
 
   const settings = {
     className: 'overflow-hidden',
@@ -110,7 +134,7 @@ const Product = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 5,
+          slidesToShow: 4,
         },
       },
     ],
@@ -118,21 +142,21 @@ const Product = () => {
 
   return (
     <div className="w-full max-w-screen-2xl mx-auto">
-      <div className="max-w-lg text-center sm:text-left ml-4 border-s-4 border-sky-400">
+      <div className="max-w-lg text-center sm:text-left ml-4 border-s-4 border-blue-400">
         <h2 className="ml-4 text-2xl text-black sm:text-2xl md:text-4xl mb-12">
           Novos produtos
         </h2>
       </div>
 
-      <div className="relative">
+      <div className="relative mr-8 ml-8">
         <Slider {...settings}>
           {products.map((product, index) => (
             <div
               key={index}
-              className="group my-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md"
+              className="group my-12 mb-6 flex w-fullflex-col overflow-hidden rounded-lg border border-gray-100 bg-gray-100 shadow-md"
             >
               <a 
-                className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
+                className="relative mx-4 mt-3 flex h-60 overflow-hidden rounded-xl"
                 href="/CorgiSHOP/productpages"
               >
                 <span id="id"
