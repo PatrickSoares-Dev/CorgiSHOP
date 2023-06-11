@@ -15,6 +15,7 @@ const Login = ({ handleToggleForm }) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -28,28 +29,26 @@ const Login = ({ handleToggleForm }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setIsLoading(true); // Define o estado de carregamento para true
+  
     try {
+      // Adiciona um atraso de 2 segundos
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+  
       const response = await axios.post('http://localhost:8080/login', {
         email,
         password,
       });
       setError('');
-
-      // Armazena o email no localStorage com o nome "email"
       localStorage.setItem('email', email);
-
-      // Limpa o campo de e-mail
       setEmail('');
-
-      // Redireciona o usuário para a página inicial
-      
+      navigate('/CorgiSHOP');
     } catch (error) {
-      localStorage.setItem('email', 'patrick@teste.com');
       console.log(localStorage.email);
       navigate('/CorgiSHOP');
-      //descomentar
-      // setError(error.response.data.message);
+      setError(error.response.data.message);
+    } finally {
+      setIsLoading(false); // Define o estado de carregamento para false
     }
   };
 
@@ -102,8 +101,8 @@ const Login = ({ handleToggleForm }) => {
                 }
                 containerProps={{ className: "-ml-2.5" }}
               />
-              <Button type="submit" className="mt-6" fullWidth>
-                Entrar
+              <Button type="submit" className="mt-6" fullWidth disabled={isLoading}>
+                {isLoading ? 'Logando...' : 'Entrar'}
               </Button>
               <Typography
                 color="gray"

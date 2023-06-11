@@ -1,7 +1,7 @@
 import React from 'react';
 
-import roupinhaChucky1 from '../../assets/img/Products/Roupinhas/Roupinha-chucky/roupinha-chucky1.png';
-import brinquedoBola2 from '../../assets/img/Products/Brinquedo/Brinquedo-porquinho/brinquedo-porquinho-chalesco1.jpg';
+import roupinhaChucky1 from '../../assets/img/Products/Roupinhas/Roupinha-chucky/roupinha-chucky1.jpg';
+import brinquedoBola2 from '../../assets/img/Products/Brinquedo/Brinquedo-porquinho/brinquedo-porquinho1.jpg';
 import sedex from '../../assets/img/sedex.jpg';
 import jadlog from '../../assets/img/jadlog.jpg';
 

@@ -1,84 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
+import axios from 'axios';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import roupinhaChucky1 from '../../assets/img/Products/Roupinhas/Roupinha-chucky/roupinha-chucky1.png';
-import roupinhaChucky2 from '../../assets/img/Products/Roupinhas/Roupinha-chucky/roupinha-chucky2.png';
-import roupinhaLaCasa1 from '../../assets/img/Products/Roupinhas/Roupinha-lacasa/roupinha-laCasa2.jpg';
-import roupinhaLaCasa2 from '../../assets/img/Products/Roupinhas/Roupinha-lacasa/roupinha-laCasa3.jpg';
-import brinquedoBola1 from '../../assets/img/Products/Brinquedo/Brinquedo-bola/bola-corda1.jpg';
-import brinquedoBola2 from '../../assets/img/Products/Brinquedo/Brinquedo-bola/bola-corda2.jpg';
-import acessoriosArranhador1 from '../../assets/img/Products/Acessorios/Acessorio-arranhador/acessorio-arranhador1.jpg';
-import acessoriosArranhador2 from '../../assets/img/Products/Acessorios/Acessorio-arranhador/acessorio-arranhador2.jpg';
-
-
 const Product = () => {
-  const products = [
-    {
-      name_product: 'Roupinha de terror Chucky',
-      value_product: 'R$ 79,99',
-      value_off: 'R$ 99,99',
-      img_product: roupinhaChucky1,
-      hover_img_product: roupinhaChucky2,
-    },
+  const [products, setProducts] = useState([]);
 
-    {
-      name_product: 'Roupa La Casa de Papel',
-      value_product: 'R$ 169,99',
-      value_off: 'R$ 209,99',
-      img_product: roupinhaLaCasa1,
-      hover_img_product: roupinhaLaCasa2,
-    },
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/product');
+        const data = response.data;
+        
+        if (data.products && Array.isArray(data.products)) {
+          setProducts(data.products);
+        } else {
+          console.error('Products not found or not an array');
+        }
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-    {
-      name_product: 'Brinqued Bola de Corda Azul',
-      value_product: 'R$ 12,99',
-      value_off: 'R$ 24,99',
-      img_product: brinquedoBola1,
-      hover_img_product: brinquedoBola2,
-    },
-
-    {
-      name_product: 'Brinquedo Arranhador',
-      value_product: 'R$ 39,99',
-      value_off: 'R$ 49,99',
-      img_product: acessoriosArranhador1,
-      hover_img_product: acessoriosArranhador2,
-    },
-    {
-      name_product: 'Roupinha Chucky',
-      value_product: 'R$ 79,99',
-      value_off: 'R$ 99,99',
-      img_product: roupinhaChucky1,
-      hover_img_product: roupinhaChucky2,
-    },
-
-    {
-      name_product: 'Roupa La Casa de Papel',
-      value_product: 'R$ 169,99',
-      value_off: 'R$ 209,99',
-      img_product: roupinhaLaCasa1,
-      hover_img_product: roupinhaLaCasa2,
-    },
-
-    {
-      name_product: 'Brinqued Bola de Corda Azul',
-      value_product: 'R$ 12,99',
-      value_off: 'R$ 24,99',
-      img_product: brinquedoBola1,
-      hover_img_product: brinquedoBola2,
-    },
-
-    {
-      name_product: 'Brinquedo Arranhador',
-      value_product: 'R$ 39,99',
-      value_off: 'R$ 49,99',
-      img_product: acessoriosArranhador1,
-      hover_img_product: acessoriosArranhador2,
-    },
- 
-  ];
+    fetchProducts();
+  }, []);
 
   const PrevArrow = (props) => {
     const { className, onClick } = props;
@@ -122,7 +69,6 @@ const Product = () => {
     );
   };
   
-
   const settings = {
     className: 'overflow-hidden',
     slidesToShow: 4,
@@ -150,72 +96,72 @@ const Product = () => {
 
       <div className="relative mr-8 ml-8">
         <Slider {...settings}>
-          {products.map((product, index) => (
-            <div
-              key={index}
-              className="group my-12 mb-6 flex w-fullflex-col overflow-hidden rounded-lg border border-gray-100 bg-gray-100 shadow-md"
-            >
-              <a 
-                className="relative mx-4 mt-3 flex h-60 overflow-hidden rounded-xl"
-                href="/CorgiSHOP/productpages"
+          {Array.isArray(products) ? (
+            products.map((product) => (
+              <div
+                key={product.id}
+                className="group my-12 mb-6 flex w-fullflex-col overflow-hidden rounded-lg border border-gray-100 bg-gray-100 shadow-md"
               >
-                <span id="id"
-                src={product.id}>
-
-                </span>
-                <img
-                  className="peer absolute top-0 right-0 h-full w-full object-cover"
-                  src={product.img_product}
-                  alt="product image"
-                />
-                <img
-                  className="peer absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0"
-                  src={product.hover_img_product}
-                  alt="product image"
-                />
-              </a>
-              <div className="mt-4 px-5 pb-5">
-                <a href="#">
-                  <h5 className="text-xl tracking-tight text-bold text-slate-900">
-                    {product.name_product}
-                  </h5>
-                </a>
-                <div className="mt-2 mb-5 flex items-center justify-between">
-                  <p>
-                    <span className="text-3xl font-bold text-teal-500">
-                      {product.value_product}
-                    </span>
-                    <span className="text-sm text-slate-900 line-through ml-5">
-                      {product.value_off}
-                    </span>
-                  </p>
-                </div>
-                <a
-                  href="#"
-                  className="flex items-center justify-center rounded-md bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                <a 
+                  className="relative mx-4 mt-3 flex h-60 overflow-hidden rounded-xl"
+                  href={`/CorgiSHOP/productpages?id=${product.id}`}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="mr-2 h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                    />
-                  </svg>
-                  Adicionar ao carrinho()
+                  <span id="id">{product.id}</span>
+                  <img
+                    className="peer absolute top-0 right-0 h-full w-full object-cover"
+                    src={product.imagem1}
+                    alt="product image"
+                  />
+                  <img
+                    className="peer absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0"
+                    src={product.imagem2}
+                    alt="product image"
+                  />
                 </a>
+                <div className="mt-4 px-5 pb-5">
+                  <a href="#">
+                    <h5 className="text-xl tracking-tight text-bold text-slate-900">
+                      {product.nome}
+                    </h5>
+                  </a>
+                  <div className="mt-2 mb-5 flex items-center justify-between">
+                    <p>
+                      <span className="text-3xl font-bold text-teal-500">
+                        R$ {product.valorProduto}
+                      </span>
+                      <span className="text-sm text-slate-900 line-through ml-5">
+                        R$ {product.valorOff}
+                      </span>
+                    </p>
+                  </div>
+                  <a
+                    href="#"
+                    className="flex items-center justify-center rounded-md bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="mr-2 h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                      />
+                    </svg>
+                    Adicionar ao carrinho
+                  </a>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <div>Nenhum produto encontrado.</div>
+          )}
         </Slider>
       </div>
-      
     </div>
   );
 };

@@ -1,0 +1,243 @@
+{
+    "produtos": [
+      {
+        "ID": "3",
+        "Name": "Roupinha de terror Chucky",
+        "Value_product": 159.99,
+        "Value_off": 199.99,
+        "Categoria": "Roupinhas",
+        "Avaliacao": 182,
+        "Titulo": "A roupinha assustadoramente adorável do Chucky para o seu pet",
+        "Descricao1": "Preparado para um Halloween cheio de estilo assustadoramente fofo? Apresentamos a você a roupinha inspirada no icônico personagem Chucky, diretamente dos filmes de terror. Agora, o seu pet pode entrar no clima dessa época tão divertida com essa fantasia única. Feita com materiais de alta qualidade e atenção aos detalhes, essa roupinha transformará o seu pet em um Chucky irresistível.",
+        "Descricao2": "Com seu macacão listrado, macio e confortável, e seu chapéu marcante, o seu pet estará pronto para causar sensação nas festas e nas ruas no Dia das Bruxas. Garanta já essa roupinha exclusiva e prepare-se para os suspiros de admiração e sorrisos encantados ao ver o seu pet fofo vestido como o lendário Chucky!",
+        "IMGSRC": [
+          "../../assets/img/Products/Roupinhas/Roupinha-chucky/Roupinha-chucky1.png",
+          "../../assets/img/Products/Roupinhas/Roupinha-chucky/Roupinha-chucky2.png",
+          "../../assets/img/Products/Roupinhas/Roupinha-chucky/Roupinha-chucky3.png",
+          "../../assets/img/Products/Roupinhas/Roupinha-chucky/Roupinha-chucky4.png"
+        ]
+      },
+      {
+        "ID": "4",
+        "Name": "Capa de Chuva La Casa",
+        "Value_product": 129.99,
+        "Value_off": 169.99,
+        "Categoria": "Roupinhas",
+        "Avaliacao": 347,
+        "Titulo": "Capa de Chuva La Casa: Proteção e estilo nos dias chuvosos",
+        "Descricao1": "A chuva não precisa mais ser um problema para o seu pet! Com a Capa de Chuva La Casa, seu amigo de quatro patas estará protegido e estiloso mesmo nos dias mais chuvosos. Feita com material resistente à água e com um design moderno, essa capa de chuva mantém o seu pet seco e confortável durante os passeios.",
+        "Descricao2": "Além disso, a Capa de Chuva La Casa possui fecho de velcro ajustável e capuz para uma proteção completa. Disponível em diferentes tamanhos, essa capa de chuva é perfeita para cães e gatos de todos os portes. Não deixe que a chuva atrapalhe os momentos de diversão ao ar livre do seu pet. Adquira agora a Capa de Chuva La Casa e proporcione ao seu companheiro uma proteção de alta qualidade e muito estilo!",      
+        "IMGSRC": [
+          "../../assets/img/Products/Roupinhas/Roupinha-lacasa/Roupinha-lacasa1.png",
+          "../../assets/img/Products/Roupinhas/Roupinha-lacasa/Roupinha-lacasa2.png",
+          "../../assets/img/Products/Roupinhas/Roupinha-lacasa/Roupinha-lacasa3.png",
+          "../../assets/img/Products/Roupinhas/Roupinha-lacasa/Roupinha-lacasa4.png"
+        ]
+      },
+      {
+        "ID": "5",
+        "Name": "Roupa Pós Castração",
+        "Value_product": 109.99,
+        "Value_off": 139.99,
+        "Categoria": "Roupinhas",
+        "Avaliacao": 178,
+        "Titulo": "Roupa Pós Castração: Conforto e cuidado pós-operatório para o seu pet",
+        "Descricao1": "Após a castração, seu pet precisa de cuidados especiais para uma recuperação tranquila. A Roupa Pós Castração é a escolha perfeita para garantir o conforto e a proteção necessários nesse momento. Feita com tecido macio e respirável, essa roupa proporciona o suporte adequado para a área cirúrgica, evitando lambidas e possíveis infecções.",
+        "Descricao2": "Com seu design moderno e ajuste perfeito ao corpo do seu pet, a Roupa Pós Castração é prática de usar e fácil de limpar. Disponível em diferentes tamanhos e cores, essa roupa é essencial para garantir a recuperação confortável e segura do seu amiguinho após a castração. Invista no bem-estar do seu pet e adquira agora mesmo a Roupa Pós Castração.",    
+        "IMGSRC": [
+          "../../assets/img/Products/Roupinhas/Roupinha-castracao/Roupinha-castracao1.png",
+          "../../assets/img/Products/Roupinhas/Roupinha-castracao/Roupinha-castracao2.png",
+          "../../assets/img/Products/Roupinhas/Roupinha-castracao/Roupinha-castracao3.png",
+          "../../assets/img/Products/Roupinhas/Roupinha-castracao/Roupinha-castracao4.png"
+        ]
+      },
+      {
+        "ID": "6",
+        "Name": "Blusa My Dream Heart",
+        "Value_product": 79.99,
+        "Value_off": 99.99,
+        "Categoria": "Roupinhas",
+        "Avaliacao": 234,
+        "Titulo": "Blusa My Dream Heart: Aconchego e estilo para o seu pet",
+        "Descricao1": "A Blusa My Dream Heart é perfeita para os momentos de aconchego e estilo do seu pet. Com seu design encantador e estampa delicada de corações, essa blusa irá conquistar os corações de todos ao redor. Feita com material macio e confortável, ela proporciona o máximo de conforto e liberdade de movimento para o seu amiguinho.",
+        "Descricao2": "Além de ser uma opção quentinha para os dias frios, a Blusa My Dream Heart também é um charme para as ocasiões especiais. Seja para um passeio no parque ou um encontro com amigos peludos, seu pet estará sempre na moda com essa blusa adorável. Garanta já essa peça única e faça do guarda-roupa do seu pet um verdadeiro sonho de fofura!",
+        "IMGSRC": [
+          "../../assets/img/Products/Roupinhas/Roupinha-blusa-dream/Roupinha-blusa-dream1.png",
+          "../../assets/img/Products/Roupinhas/Roupinha-blusa-dream/Roupinha-blusa-dream2.png",
+          "../../assets/img/Products/Roupinhas/Roupinha-blusa-dream/Roupinha-blusa-dream3.png",
+          "../../assets/img/Products/Roupinhas/Roupinha-blusa-dream/Roupinha-blusa-dream4.png"
+        ]
+      },
+      {
+        "ID": "7",
+        "Name": "Roupa Pós Castração Gato",
+        "Value_product": 89.99,
+        "Value_off": 109.99,
+        "Categoria": "Roupinhas",
+        "Avaliacao": 192,
+        "Titulo": "Roupa Pós Castração Gato: Conforto e recuperação para o seu gatinho",
+        "Descricao1": "A Roupa Pós Castração Gato é essencial para garantir o conforto e a recuperação tranquila do seu gatinho após o procedimento cirúrgico. Feita com material suave e respirável, essa roupinha proporciona proteção e evita que o pet lamba ou machuque a área operada.",
+        "Descricao2": "Com seu design ajustável e fecho de velcro, a roupa é fácil de vestir e proporciona o máximo conforto ao seu gato. Além disso, ela também ajuda a prevenir que o animal lamba medicamentos ou áreas sensíveis, garantindo uma recuperação mais segura. Cuide do seu gatinho com carinho e proporcione o melhor pós-operatório com essa roupa especial.",
+        "IMGSRC": [
+          "../../assets/img/Products/Roupinhas/Roupinha-castragato/Roupinha-castragato1.png",
+          "../../assets/img/Products/Roupinhas/Roupinha-castragato/Roupinha-castragato2.png",
+          "../../assets/img/Products/Roupinhas/Roupinha-castragato/Roupinha-castragato3.png",
+          "../../assets/img/Products/Roupinhas/Roupinha-castragato/Roupinha-castragato4.png"
+        ]
+      },
+      {
+        "ID": "8",
+        "Name": "Brinquedo Arranhador Furacão",
+        "Value_product": 29.99,
+        "Value_off": 49.99,
+        "Categoria": "Acessorios",
+        "Avaliacao": 189,
+        "Titulo": "Brinquedo Arranhador Furacão: Diversão e afiação de garras para o seu gato",
+        "Descricao1": "O brinquedo Arranhador Furacão é perfeito para entreter o seu gato enquanto afia suas garras. Feito com materiais duráveis e resistentes, proporciona diversão e exercício para o seu felino.",
+        "Descricao2": "Além de ser um ótimo brinquedo, o Arranhador Furacão ajuda a proteger seus móveis e objetos de arranhões indesejados. Seu gato vai adorar!",
+        "IMGSRC": [
+          "../../assets/img/Products/Acessorios/Acessorio-arranhador/Acessorio-arranhador1.png",
+          "../../assets/img/Products/Acessorios/Acessorio-arranhador/Acessorio-arranhador2.png",
+          "../../assets/img/Products/Acessorios/Acessorio-arranhador/Acessorio-arranhador3.png",
+          "../../assets/img/Products/Acessorios/Acessorio-arranhador/Acessorio-arranhador4.png"
+        ]        
+      },
+      {
+        "ID": "9",
+        "Name": "Cama Future Pet Cinza",
+        "Value_product": 169.99,
+        "Value_off": 199.99,
+        "Categoria": "Acessorios",
+        "Avaliacao": 172,
+        "Titulo": "Cama Future Pet Cinza: Conforto e descanso em grande estilo para o seu pet",
+        "Descricao1": "A Cama Future Pet Cinza é o lugar perfeito para o seu pet descansar e relaxar. Com um design moderno e confortável, essa cama proporciona um ambiente aconchegante para o seu animal de estimação.",
+        "Descricao2": "Feita com materiais de alta qualidade, a Cama Future Pet Cinza é resistente e durável. Seu pet vai adorar ter um cantinho especial para relaxar e tirar uma soneca.",
+        "IMGSRC": [
+          "../../assets/img/Products/Acessorios/Acessorio-caminha-cinza/Acessorio-caminha-cinza1.png",
+          "../../assets/img/Products/Acessorios/Acessorio-caminha-cinza/Acessorio-caminha-cinza2.png",
+          "../../assets/img/Products/Acessorios/Acessorio-caminha-cinza/Acessorio-caminha-cinza3.png",
+          "../../assets/img/Products/Acessorios/Acessorio-caminha-cinza/Acessorio-caminha-cinza4.png"
+        ]          
+      },
+      {
+        "ID": "10",
+        "Name": "Capa de Chuva Auventureiro",
+        "Value_product": 49.99,
+        "Value_off": 69.99,
+        "Categoria": "Acessorios",
+        "Avaliacao": 278,
+        "Titulo": "Capa de Chuva Auventureiro: Proteção contra a chuva para o seu pet aventureiro",
+        "Descricao1": "A Capa de Chuva Auventureiro é perfeita para proteger o seu pet nos dias chuvosos. Feita com material resistente à água, mantém seu pet seco e confortável durante os passeios.",
+        "Descricao2": "Além de ser funcional, a Capa de Chuva Auventureiro possui um design moderno e ajustável, garantindo um encaixe perfeito no seu pet. Não deixe o mau tempo atrapalhar os passeios do seu amiguinho!",
+        "IMGSRC": [
+          "../../assets/img/Products/Acessorios/Acessorio-capa-chuva/Acessorio-capa-chuva1.png",
+          "../../assets/img/Products/Acessorios/Acessorio-capa-chuva/Acessorio-capa-chuva2.png",
+          "../../assets/img/Products/Acessorios/Acessorio-capa-chuva/Acessorio-capa-chuva3.png",
+          "../../assets/img/Products/Acessorios/Acessorio-capa-chuva/Acessorio-capa-chuva4.png"
+        ]         
+      },
+      {
+        "ID": "11",
+        "Name": "Peitoral e Guia Toh",
+        "Value_product": 49.99,
+        "Value_off": 69.99,
+        "Categoria": "Acessorios",
+        "Avaliacao": 520,
+        "Titulo": "Peitoral e Guia Toh: Passeios seguros e confortáveis para o seu pet",
+        "Descricao1": "O Peitoral e Guia Toh são ideais para passeios seguros e confortáveis com o seu pet. O peitoral é ajustável e acolchoado, proporcionando conforto e evitando desconforto para o seu pet durante os passeios.",
+        "Descricao2": "A guia possui uma alça de mão confortável e um mosquetão resistente, garantindo segurança e controle durante os passeios. Com o Peitoral e Guia Toh, você e seu pet podem aproveitar momentos especiais juntos, com muito conforto e segurança.",
+        "IMGSRC": [
+          "../../assets/img/Products/Acessorios/Acessorio-peitoral-guia/Acessorio-peitoral-guia1.png",
+          "../../assets/img/Products/Acessorios/Acessorio-peitoral-guia/Acessorio-peitoral-guia2.png",
+          "../../assets/img/Products/Acessorios/Acessorio-peitoral-guia/Acessorio-peitoral-guia3.png",
+          "../../assets/img/Products/Acessorios/Acessorio-peitoral-guia/Acessorio-peitoral-guia4.png"
+        ]        
+      },
+      {
+        "ID": "12",
+        "Name": "Brinquedo Bola de Corda",
+        "Value_product": 19.99,
+        "Value_off": 29.99,
+        "Categoria": "Brinquedos",
+        "Avaliacao": 100,
+        "Titulo": "Divirta-se com o Brinquedo Bola de Corda para o seu pet",
+        "Descricao1": "O Brinquedo Bola de Corda é perfeito para entreter o seu pet e estimular a atividade física. Feito com corda resistente, é ideal para brincadeiras de buscar e puxar.",
+        "Descricao2": "Seu pet vai adorar a textura e o formato dessa bola de corda. Além de proporcionar diversão, o Brinquedo Bola de Corda ajuda a fortalecer os dentes e a mandíbula do seu pet durante as brincadeiras.",
+        "IMGSRC": [
+          "../../assets/img/Products/Brinquedo/Brinquedo-bola/Brinquedo-bola1.png",
+          "../../assets/img/Products/Brinquedo/Brinquedo-bola/Brinquedo-bola2.png",
+          "../../assets/img/Products/Brinquedo/Brinquedo-bola/Brinquedo-bola3.png",
+          "../../assets/img/Products/Brinquedo/Brinquedo-bola/Brinquedo-bola4.png"
+        ]
+      },
+      {
+        "ID": "13",
+        "Name": "Brinquedo Chalesco Pelúcia",
+        "Value_product": 19.99,
+        "Value_off": 29.99,
+        "Categoria": "Brinquedos",
+        "Avaliacao": 27,
+        "Titulo": "O Brinquedo Chalesco Pelúcia: diversão macia para o seu pet",
+        "Descricao1": "O Brinquedo Chalesco Pelúcia é macio, fofo e perfeito para o seu pet se divertir. Feito com material de pelúcia resistente, esse brinquedo é ideal para brincadeiras de jogar e buscar.",
+        "Descricao2": "Seu pet vai adorar a textura suave desse brinquedo de pelúcia. Além de proporcionar momentos de diversão, o Brinquedo Chalesco Pelúcia também pode ser usado como companhia para o seu pet, ajudando a aliviar o estresse e a ansiedade.",
+        "IMGSRC": [
+          "../../assets/img/Products/Brinquedo/Brinquedo-chalesco/Brinquedo-chalesco1.png",
+          "../../assets/img/Products/Brinquedo/Brinquedo-chalesco/Brinquedo-chalesco2.png",
+          "../../assets/img/Products/Brinquedo/Brinquedo-chalesco/Brinquedo-chalesco3.png",
+          "../../assets/img/Products/Brinquedo/Brinquedo-chalesco/Brinquedo-chalesco4.png"
+        ]
+      },
+      {
+        "ID": "14",
+        "Name": "Brinquedo Buddy Parafusos",
+        "Value_product": 49.99,
+        "Value_off": 69.99,
+        "Categoria": "Brinquedos",
+        "Avaliacao": 69,
+        "Titulo": "Desafie o seu pet com o Brinquedo Buddy Parafusos",
+        "Descricao1": "O Brinquedo Buddy Parafusos é perfeito para os cães que adoram desafios. Feito com material resistente e durável, possui compartimentos internos que podem ser preenchidos com petiscos, estimulando o seu pet a encontrar as recompensas.",
+        "Descricao2": "Seu pet vai se divertir por horas tentando alcançar os petiscos escondidos dentro do Brinquedo Buddy Parafusos. Além de proporcionar entretenimento, esse brinquedo ajuda a estimular o raciocínio e a habilidade mental do seu pet.",
+        "IMGSRC": [
+          "../../assets/img/Products/Brinquedo/Brinquedo-parafuso/Brinquedo-parafuso1.png",
+          "../../assets/img/Products/Brinquedo/Brinquedo-parafuso/Brinquedo-parafuso2.png",
+          "../../assets/img/Products/Brinquedo/Brinquedo-parafuso/Brinquedo-parafuso3.png",
+          "../../assets/img/Products/Brinquedo/Brinquedo-parafuso/Brinquedo-parafuso4.png"
+        ]
+      },
+      {
+        "ID": "15",
+        "Name": "Brinquedo Chalesco Porquinho",
+        "Value_product": 39.99,
+        "Value_off": 49.99,
+        "Categoria": "Brinquedos",
+        "Avaliacao": 98,
+        "Titulo": "Brinque de pegar com o Brinquedo Chalesco Porquinho",
+        "Descricao1": "O Brinquedo Chalesco Porquinho é um pelúcia divertida e resistente para o seu pet. Com formato de porquinho, esse brinquedo é macio e perfeito para brincadeiras de jogar e buscar.",
+        "Descricao2": "Seu pet vai adorar apertar e morder o Brinquedo Chalesco Porquinho. Além de proporcionar diversão, esse brinquedo também ajuda a estimular os instintos naturais do seu pet, mantendo-o entretido por horas.",
+        "IMGSRC": [
+          "../../assets/img/Products/Brinquedo/Brinquedo-porquinho/Brinquedo-porquinho1.png",
+          "../../assets/img/Products/Brinquedo/Brinquedo-porquinho/Brinquedo-porquinho2.png",
+          "../../assets/img/Products/Brinquedo/Brinquedo-porquinho/Brinquedo-porquinho3.png",
+          "../../assets/img/Products/Brinquedo/Brinquedo-porquinho/Brinquedo-porquinho4.png"
+        ]
+      },
+      {
+        "ID": "16",
+        "Name": "Brinquedo Jambo Ratinho",
+        "Value_product": 29.99,
+        "Value_off": 39.99,
+        "Categoria": "Brinquedos",
+        "Avaliacao": 145,
+        "Titulo": "O Brinquedo Jambo Ratinho: diversão caçadora para o seu pet",
+        "Descricao1": "O Brinquedo Jambo Ratinho é perfeito para entreter o seu pet. Feito com materiais duráveis, possui formato de ratinho que desperta o instinto de caça do seu pet.",
+        "Descricao2": "Seu pet vai adorar perseguir e morder o Brinquedo Jambo Ratinho. Além de proporcionar diversão, esse brinquedo também ajuda a exercitar os músculos e a mente do seu pet.",
+        "IMGSRC": [
+          "./src/assets/img/Products/Brinquedo/Brinquedo-ratinho/Brinquedo-ratinho1.jpg",
+          "./src/assets/img/Products/Brinquedo/Brinquedo-ratinho/Brinquedo-ratinho2.jpg",
+          "./src/assets/img/Products/Brinquedo/Brinquedo-ratinho/Brinquedo-ratinho3.jpg",
+          "./src/assets/img/Products/Brinquedo/Brinquedo-ratinho/Brinquedo-ratinho4.jpg"
+        ]
+      }  
+    ]  
+  }
+  
