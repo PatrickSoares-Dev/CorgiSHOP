@@ -35,7 +35,7 @@ CREATE TABLE `sequelizemeta` (
 
 LOCK TABLES `sequelizemeta` WRITE;
 /*!40000 ALTER TABLE `sequelizemeta` DISABLE KEYS */;
-INSERT INTO `sequelizemeta` VALUES ('20230608191318-create-users.js'),('20230610123456-create-categories.js'),('20230610123456-create-products.js'),('20230610123457-create-cart.js');
+INSERT INTO `sequelizemeta` VALUES ('20230608191318-create-users.js'),('20230610123456-create-categories.js'),('20230610123456-create-products.js'),('20230610123457-create-cart.js'),('20230610123458-create-cart.js'),('20230610123458-create-cart2.js');
 /*!40000 ALTER TABLE `sequelizemeta` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-11 17:05:56
+-- Dump completed on 2023-06-11 19:22:15
