@@ -1,4 +1,3 @@
-// Incluir as bibliotecas
 // Gerencia as requisições, rotas e URLs, entre outra funcionalidades
 const express = require("express");
 // Importar a biblioteca para permitir conexão externa
@@ -26,12 +25,20 @@ app.use((req, res, next) => {
 const db = require("./db/models")
 
 //Controllers API
-const register = require("./controllers/register")
-const login = require("./controllers/login");
+const register = require('./controllers/register');
+const login = require('./controllers/login');
+const product = require('./controllers/product');
+const cart = require("./controllers/cart");
+
+
 
 //Endpoints
 app.use('/login', login);
 app.use('/register', register);
+app.use('/product', product);
+app.use("/cart", cart);
+
+
 
 app.listen(8080, () =>{
     console.log("Servidor iniciado na porta 8080: http://localhost:8080")

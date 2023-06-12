@@ -18,12 +18,11 @@ if (config.use_env_variable) {
 
 //Verificar conexão com banco de dados:
 
-try{
-  console.log("Conexão com o banco de dados realizado com sucesso...")
-}catch(error){
-  console.log("Conexão com o banco de dados não realizado com sucesso...", error)
+try {
+  console.log("Conexão com o banco de dados realizado com sucesso...");
+} catch (error) {
+  console.log("Conexão com o banco de dados não realizado com sucesso...", error);
 }
-
 
 fs
   .readdirSync(__dirname)
@@ -39,6 +38,18 @@ fs
     const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
     db[model.name] = model;
   });
+
+const categoriesModel = require('./categories')(sequelize, Sequelize.DataTypes);
+db.categories = categoriesModel;
+
+const productsModel = require('./products')(sequelize, Sequelize.DataTypes);
+db.products = productsModel;
+
+const usersModel = require('./users')(sequelize, Sequelize.DataTypes);
+db.users = usersModel;
+
+const cartModel = require('./cart')(sequelize, Sequelize.DataTypes);
+db.cart = cartModel;
 
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
