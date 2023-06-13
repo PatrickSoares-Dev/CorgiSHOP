@@ -1,0 +1,3 @@
+[submodule "CorgiSHOP-API"]
+	path = CorgiSHOP-API
+	url = https://github.com/PatrickSoares-Dev/CorgiSHOP-API
