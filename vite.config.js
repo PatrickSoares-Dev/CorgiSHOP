@@ -8,10 +8,6 @@ export default defineConfig({
       host: true,
       port: 80, // Configuração para a AWS
     },
-    {
-      host: true,
-      port: 8080, // Configuração para sua máquina local
-    },
   ],
   plugins: [react()],
 })
