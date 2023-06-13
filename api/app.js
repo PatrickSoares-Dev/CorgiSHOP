@@ -40,6 +40,8 @@ app.use("/cart", cart);
 
 
 
-app.listen(8080, () =>{
-    console.log("Servidor iniciado na porta 8080: http://localhost:8080")
+const PORT = 8080; // Escolha uma porta disponível para o servidor web
+
+app.listen(PORT, () => {
+    console.log(`Servidor iniciado na porta ${PORT}`);
 });
