@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Cart from '../Shopping Cart/Cart';
 import { HeartIcon, ShoppingCartIcon, EnvelopeIcon, PhoneIcon, UserIcon, FlagIcon } from "@heroicons/react/24/solid";
-import Brasil from '../../assets/img/brasil.png';
-import Logo from '../../assets/img/logo3.png';
+// import Brasil from '../../assets/img/brasil.png';
+// import Logo from '../../assets/img/logo3.png';
 
 const Header = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
