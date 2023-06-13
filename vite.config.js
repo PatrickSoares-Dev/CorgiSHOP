@@ -1,8 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  base: "/CorgiSHOP",
-  plugins: [react()],
+  base: '/CorgiSHOP',
+  server: {
+    host: true,
+    port: 80,
+  },
+  plugins: [react()]
 })
