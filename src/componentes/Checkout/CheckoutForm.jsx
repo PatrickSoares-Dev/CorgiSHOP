@@ -1,12 +1,77 @@
-import React from 'react';
-import roupinhaChucky1 from '../../assets/img/Products/Roupinhas/Roupinha-chucky/roupinha-chucky1.jpg';
-import brinquedoBola2 from '../../assets/img/Products/Roupinhas/Roupinha-lacasa/roupinha-laCasa1.jpg';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import sedex from '../../assets/img/sedex.jpg';
 import jadlog from '../../assets/img/jadlog.jpg';
 
-const CheckoutForm = () => {
 
-    return (
+const CheckoutForm = () => {
+    const [userEmail, setUserEmail] = useState('');
+    const [open, setOpen] = useState(true);
+    const [subtotal, setSubtotal] = useState(0);
+    const [products, setProducts] = useState([]);
+  
+    useEffect(() => {
+      const email = localStorage.getItem('email');
+      setUserEmail(email);
+  
+      axios
+        .get('http://localhost:8080/cart/get-cart', {
+          params: {
+            email: email,
+          },
+        })
+        .then((response) => {
+          const products = response.data.products;
+          setProducts(products);
+          createCart(products);
+        })
+        .catch((error) => {
+          console.error('Ocorreu um erro:', error);
+        });
+    }, []);
+  
+    const createCart = (products) => {
+      const cartItems = [];
+  
+      products.forEach((product) => {
+        const existingItem = cartItems.find((item) => item.id === product.id);
+  
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cartItems.push({
+            id: product.id,
+            nome: product.nome,
+            imagem1: product.imagem1,
+            valorProduto: product.valorProduto,
+            color: 'unica',
+            quantity: 1,
+          });
+        }
+      });
+  
+      setProducts(cartItems);
+    };
+  
+    useEffect(() => {
+      const count = products.length;
+      let totalQuantity = 0;
+  
+      products.forEach((product) => {
+        totalQuantity += product.quantity;
+      });
+  
+      console.log('Quantidade de produtos:', count);
+      console.log('Quantidade total:', totalQuantity);
+    }, [products]);
+  
+    useEffect(() => {
+      const prices = products.map((product) => parseFloat(product.valorProduto));
+      const total = prices.reduce((accumulator, currentPrice) => accumulator + currentPrice, 0);
+      setSubtotal(total);
+    }, [products]);
+
+  return (
     <div className='mb-16'>
         <div class="flex flex-col items-center border-b bg-white py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32">                    
             <div class="mt-4 py-2 text-xs sm:mt-0 sm:ml-auto sm:text-base">
@@ -117,40 +182,34 @@ const CheckoutForm = () => {
             <div class="px-4 pt-8">
                 <p class="text-xl font-medium">Resumo do pedido</p>
                 <p class="text-gray-400">Verifique seus itens. E selecione um método de envio adequado.</p>
-                <div class="mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6">
-                <div class="flex flex-col rounded-lg bg-white sm:flex-row">
-                    <img class="m-2 h-24 w-28 rounded-md border object-cover object-center" src={roupinhaChucky1} alt="" />
-                    <div class="flex w-full flex-col px-4 py-4">
-                    <span class="font-semibold">Roupinha chucky</span>
-                    <span class="float-right text-gray-400">TAM 01</span>
-                    <p class="text-lg font-bold">R$79.99</p>
+                <div className="mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6">
+                    {products.map((product) => (
+                    <div key={product.id} className="flex flex-col rounded-lg bg-white sm:flex-row">
+                        <img className="m-2 h-24 w-28 rounded-md border object-cover object-center" src={product.imagem1} alt="" />
+                        <div className="flex w-full flex-col px-4 py-4">
+                        <span className="font-semibold">{product.nome}</span>
+                        <span className="float-right text-gray-400">Quantidade: {product.quantity}</span>
+                        <p className="text-lg font-bold">R${product.valorProduto}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="flex flex-col rounded-lg bg-white sm:flex-row">
-                    <img class="m-2 h-24 w-28 rounded-md border object-cover object-center" src={brinquedoBola2} alt="" />
-                    <div class="flex w-full flex-col px-4 py-4">
-                    <span class="font-semibold">Brinquedo de bola azul</span>
-                    <span class="float-right text-gray-400">TAM ÚNICO</span>
-                    <p class="mt-auto text-lg font-bold">R$49.99</p>
-                    </div>
-                </div>
+                    ))}
                 </div>
                 <form class="mt-5 grid gap-6">
-                <div class="mt-6 border-t border-b py-2">
+                    <div class="mt-6 border-t border-b py-2">
                     <div class="flex items-center justify-between">
-                    <p class="text-sm font-medium text-gray-900">Subtotal</p>
-                    <p class="font-semibold text-gray-900">R$ 129,99</p>
+                        <p class="text-sm font-medium text-gray-900">Subtotal</p>
+                        <p class="font-semibold text-gray-900">R$ {subtotal.toFixed(2)}</p>
                     </div>
                     <div class="flex items-center justify-between">
-                    <p class="text-sm font-medium text-gray-900">Frete</p>
-                    <p class="font-semibold text-gray-900">R$ 15,00</p>
+                        <p class="text-sm font-medium text-gray-900">Frete</p>
+                        <p class="font-semibold text-gray-900">R$ 15,00</p>
                     </div>
-                </div>
-                <div class="mt-6 flex items-center justify-between">
+                    </div>
+                    <div class="mt-6 flex items-center justify-between">
                     <p class="text-sm font-medium text-gray-900">Total</p>
-                    <p class="text-2xl font-semibold text-gray-900">R$ 144,99</p>
-                </div>   
-                <button class="mt-4 mb-8 w-full rounded-md bg-blue-500 px-6 py-3 font-medium text-white">Confirmar pedido</button>                        
+                    <p class="text-2xl font-semibold text-gray-900">R$ {(subtotal + 15).toFixed(2)}</p>
+                    </div>
+                    <button class="mt-4 mb-8 w-full rounded-md bg-blue-500 px-6 py-3 font-medium text-white">Confirmar pedido</button>
                 </form>
             </div>
         </div>

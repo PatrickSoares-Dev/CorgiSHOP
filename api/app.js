@@ -42,7 +42,6 @@ db.sequelize
   .catch((error) => {
     console.error('Erro ao conectar ao banco de dados:', error);
   });
-  
 //Controllers API
 const register = require('./controllers/register');
 const login = require('./controllers/login');

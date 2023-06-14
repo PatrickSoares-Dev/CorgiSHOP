@@ -2,48 +2,69 @@ import { Fragment, useState, useEffect } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { ShoppingCartIcon } from '@heroicons/react/24/solid';
-// import roupinhaChucky1 from '../../assets/img/Products/Roupinhas/Roupinha-chucky/roupinha-chucky1';
-// import roupinhaChucky2 from '../../assets/img/Products/Roupinhas/Roupinha-chucky/roupinha-chucky2';
-// import brinquedoBola1 from '../../assets/img/Products/Brinquedo/Brinquedo-porquinho/brinquedo-porquinho-chalesco1';
-// import brinquedoBola2 from '../../assets/img/Products/Brinquedo/Brinquedo-porquinho/brinquedo-porquinho-chalesco2';
+import axios from 'axios';
 
-
-import roupinhaChucky1 from '../../assets/img/Products/Roupinhas/Roupinha-chucky/roupinha-chucky1.jpg';
-import roupinhaChucky2 from '../../assets/img/Products/Roupinhas/Roupinha-chucky/roupinha-chucky2.jpg';
-import roupinhaLaCasa1 from '../../assets/img/Products/Roupinhas/Roupinha-lacasa/roupinha-laCasa1.jpg';
-import roupinhaLaCasa2 from '../../assets/img/Products/Roupinhas/Roupinha-lacasa/roupinha-laCasa2.jpg';
-
-const products = [
-  {
-    id: 1,
-    name: 'Roupinha Chucky',
-    href: '#',
-    color: 'Unica',
-    price: 'R$ 79,99',
-    quantity: 1,
-    imageSrc: roupinhaChucky1,
-    imageAlt: roupinhaChucky2,
-  },
-  {
-    id: 2,
-    name: 'Capa de Chuva Future Pet La Casa de Papel',
-    href: '#',
-    color: 'Unica',
-    price: 'R$ 169,99',
-    quantity: 1,
-    imageSrc: roupinhaLaCasa1,
-    imageAlt: roupinhaLaCasa2,
-  },
-
-];
-
+const userEmail = localStorage.getItem('email');
 
 export default function Cart() {
   const [open, setOpen] = useState(true);
   const [subtotal, setSubtotal] = useState(0);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const prices = products.map((product) => parseFloat(product.price.replace('R$', '')));
+    axios
+      .get('http://localhost:8080/cart/get-cart', {
+        params: {
+          email: userEmail,
+        },
+      })
+      .then((response) => {
+        const products = response.data.products;
+        createCart(products);
+      })
+      .catch((error) => {
+        console.error('Ocorreu um erro:', error);
+      });
+  }, []);
+
+  const createCart = (products) => {
+    const cartItems = [];
+
+    products.forEach((product) => {
+      const existingItem = cartItems.find((item) => item.id === product.id);
+      const color = 'unica';
+
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cartItems.push({
+          id: product.id,
+          nome: product.nome,
+          imagem1: product.imagem1,
+          valorProduto: product.valorProduto,
+          color: color,
+          quantity: 1,
+        });
+      }
+    });
+
+    setProducts(cartItems);
+  };
+
+  useEffect(() => {
+    const count = products.length;
+    let totalQuantity = 0;
+
+    products.forEach((product) => {
+      totalQuantity += product.quantity;
+    });
+
+    console.log('Quantidade de produtos:', count);
+    console.log('Quantidade total:', totalQuantity);
+  }, [products]);
+
+  useEffect(() => {
+    const prices = products.map((product) => parseFloat(product.valorProduto));
     const total = prices.reduce((accumulator, currentPrice) => accumulator + currentPrice, 0);
     setSubtotal(total);
   }, [products]);
@@ -99,8 +120,8 @@ export default function Cart() {
                               <li key={product.id} className="flex py-6">
                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   <img
-                                    src={product.imageSrc}
-                                    alt={product.imageAlt}
+                                    src={product.imagem1}
+                                    alt={product.imagem2}
                                     className="h-full w-full object-cover object-center"
                                   />
                                 </div>
@@ -109,14 +130,15 @@ export default function Cart() {
                                   <div>
                                     <div className="flex justify-between text-base font-medium text-gray-900">
                                       <h3>
-                                        <a href={product.href}>{product.name}</a>
+                                        <a href="">{product.nome}</a>
                                       </h3>
-                                      <p className="ml-4">{product.price}</p>
+                                      <p className="ml-4">{product.valorProduto}</p>
                                     </div>
                                     <p className="mt-1 text-sm text-gray-500">{product.color}</p>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
                                     <p className="text-gray-500">Quantidade {product.quantity}</p>
+
 
                                     <div className="flex">
                                       <button
@@ -151,17 +173,18 @@ export default function Cart() {
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>
-                          Ou 
+                          Ou{" "}
                           <button
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
                             onClick={() => setOpen(false)}
                           >
-                               Continuar comprando
+                            Continuar comprando
                             <span aria-hidden="true"> &rarr;</span>
                           </button>
                         </p>
                       </div>
+
                     </div>
                   </div>
                 </Dialog.Panel>

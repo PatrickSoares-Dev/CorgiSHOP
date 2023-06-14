@@ -35,7 +35,7 @@ const Login = ({ handleToggleForm }) => {
       // Adiciona um atraso de 2 segundos
       await new Promise((resolve) => setTimeout(resolve, 2000));
   
-      const response = await axios.post('http://34.203.204.74:8080/login', {
+      const response = await axios.post('http://localhost:8080/login', {
         email,
         password,
       });
