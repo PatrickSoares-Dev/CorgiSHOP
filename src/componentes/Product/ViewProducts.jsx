@@ -15,7 +15,7 @@ const ViewProducts = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/product?id=${productId}`);
+        const response = await axios.get(`http://34.203.204.74:8080/product?id=${productId}`);
         const data = response.data;
 
         if (data.products) {
