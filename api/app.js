@@ -24,6 +24,25 @@ app.use((req, res, next) => {
 
 const db = require("./db/models")
 
+db.sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Conexão com o banco de dados estabelecida com sucesso.');
+
+    // Listar as tabelas do banco de dados
+    db.sequelize
+      .query('SHOW TABLES')
+      .then(([results, metadata]) => {
+        console.log('Tabelas no banco de dados:', results);
+      })
+      .catch((error) => {
+        console.error('Erro ao obter as tabelas do banco de dados:', error);
+      });
+  })
+  .catch((error) => {
+    console.error('Erro ao conectar ao banco de dados:', error);
+  });
+  
 //Controllers API
 const register = require('./controllers/register');
 const login = require('./controllers/login');

@@ -68,7 +68,7 @@ const AuthenticationForm = ({ handleToggleForm }) => {
     };
 
     try {
-      const response = await axios.post('http://localhost:8080/register', data, headers);
+      const response = await axios.post('http://34.203.204.74:8080/register', data, headers);
       setMessage(response.data.message);
       setIsSuccess(true);
     } catch (error) {

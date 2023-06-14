@@ -13,7 +13,7 @@ const Product = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/product');
+        const response = await axios.get('http://34.203.204.74:8080/product');
         const data = response.data;
 
         if (data.products && Array.isArray(data.products)) {
@@ -99,7 +99,7 @@ const Product = () => {
       const email = getEmailFromLocalStorage(); // Obtenha o email do localStorage
 
       // Envie a requisição POST para a API
-      const response = await axios.post('http://localhost:8080/cart/add-cart', {
+      const response = await axios.post('http://34.203.204.74:8080/cart/add-cart', {
         email,
         productId,
       });
