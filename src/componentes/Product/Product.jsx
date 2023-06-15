@@ -73,21 +73,22 @@ const Product = () => {
   };
 
   const settings = {
-    className: 'overflow-hidden',
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    vertical: false,
-    prevArrow: <PrevArrow />,
-    nextArrow: <NextArrow />,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 4,
-        },
+  className: 'overflow-hidden', // Adicione as classes de margem aqui
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  vertical: false,
+  prevArrow: <PrevArrow />,
+  nextArrow: <NextArrow />,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4,
       },
-    ],
-  };
+    },
+  ],
+};
+
 
   const getEmailFromLocalStorage = () => {
     const email = localStorage.getItem('email');
@@ -141,14 +142,17 @@ const Product = () => {
         </h2>
       </div>
 
-      <div className="relative mr-8 ml-8">
+      <div className="relative px-6">
         <Slider {...settings}>
-          {Array.isArray(products) ? (
+
+        {Array.isArray(products) ? (
             products.map((product) => (
               <div
                 key={product.id}
-                className="group my-12 mb-6 flex w-fullflex-col overflow-hidden rounded-lg border border-gray-100 bg-gray-100 shadow-md"
+                className={`group my-12 mb-6 flex w-48 flex-col overflow-hidden rounded-lg border border-gray-100 bg-gray-100 drop-shadow-md`}
+                style={{ marginRight: '8px' }} // Adicione o estilo inline para definir a margem à direita
               >
+
                 <a
                   className="relative mx-4 mt-3 flex h-60 overflow-hidden rounded-xl"
                   href={`/CorgiSHOP/productpages?id=${product.id}`}
@@ -160,14 +164,14 @@ const Product = () => {
                     alt="product image"
                   />
                   <img
-                    className="peer absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0"
+                    className="peer absolute top-0 right-96 h-full w-full object-cover transition-all delay-100 duration-1000 hover:right-0 peer-hover:right-0"
                     src={product.imagem2}
                     alt="product image"
                   />
                 </a>
                 <div className="mt-4 px-5 pb-5">
                   <a href="#">
-                    <h5 className="text-xl tracking-tight text-bold text-slate-900">
+                    <h5 className="text-lg tracking-tight text-bold text-slate-900">
                       {product.nome}
                     </h5>
                   </a>

@@ -1,107 +1,106 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import sedex from '../../assets/img/sedex.jpg';
 import jadlog from '../../assets/img/jadlog.jpg';
 
 
 const CheckoutForm = () => {
-    const [userEmail, setUserEmail] = useState('');
-    const [open, setOpen] = useState(true);
-    const [subtotal, setSubtotal] = useState(0);
-    const [products, setProducts] = useState([]);
+  const [userEmail, setUserEmail] = useState('');
+  const [open, setOpen] = useState(true);
+  const [subtotal, setSubtotal] = useState(0);
+  const [products, setProducts] = useState([]);
   
-    useEffect(() => {
-      const email = localStorage.getItem('email');
-      setUserEmail(email);
+  useEffect(() => {
+    const email = localStorage.getItem('email');
+    setUserEmail(email);
   
-      axios
-        .get('http://localhost:8080/cart/get-cart', {
-          params: {
-            email: email,
-          },
-        })
-        .then((response) => {
-          const products = response.data.products;
-          setProducts(products);
-          createCart(products);
-        })
-        .catch((error) => {
-          console.error('Ocorreu um erro:', error);
+    axios
+      .get('http://localhost:8080/cart/get-cart', {
+        params: {
+          email: email,
+        },
+      })
+      .then((response) => {
+        const products = response.data.products;
+        setProducts(products);
+        createCart(products);
+      })
+      .catch((error) => {
+        console.error('Ocorreu um erro:', error);
+      });
+  }, []);
+  
+  const createCart = (products) => {
+    const cartItems = [];
+  
+    products.forEach((product) => {
+      const existingItem = cartItems.find((item) => item.id === product.id);
+  
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cartItems.push({
+          id: product.id,
+          nome: product.nome,
+          imagem1: product.imagem1,
+          valorProduto: product.valorProduto,
+          color: 'unica',
+          quantity: 1,
         });
-    }, []);
+      }
+    });
   
-    const createCart = (products) => {
-      const cartItems = [];
+    setProducts(cartItems);
+  };
   
-      products.forEach((product) => {
-        const existingItem = cartItems.find((item) => item.id === product.id);
+  useEffect(() => {
+    const count = products.length;
+    let totalQuantity = 0;
   
-        if (existingItem) {
-          existingItem.quantity += 1;
-        } else {
-          cartItems.push({
-            id: product.id,
-            nome: product.nome,
-            imagem1: product.imagem1,
-            valorProduto: product.valorProduto,
-            color: 'unica',
-            quantity: 1,
-          });
-        }
-      });
+    products.forEach((product) => {
+      totalQuantity += product.quantity;
+    });
   
-      setProducts(cartItems);
-    };
+    console.log('Quantidade de produtos:', count);
+    console.log('Quantidade total:', totalQuantity);
   
-    useEffect(() => {
-      const count = products.length;
-      let totalQuantity = 0;
-  
-      products.forEach((product) => {
-        totalQuantity += product.quantity;
-      });
-  
-      console.log('Quantidade de produtos:', count);
-      console.log('Quantidade total:', totalQuantity);
-    }, [products]);
-  
-    useEffect(() => {
-      const prices = products.map((product) => parseFloat(product.valorProduto));
-      const total = prices.reduce((accumulator, currentPrice) => accumulator + currentPrice, 0);
-      setSubtotal(total);
-    }, [products]);
+    const prices = products.map((product) => parseFloat(product.valorProduto));
+    const total = prices.reduce((accumulator, currentPrice) => accumulator + currentPrice, 0);
+    setSubtotal(total);
+  }, [products]);
 
   return (
     <div className='mb-16'>
         <div class="flex flex-col items-center border-b bg-white py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32">                    
             <div class="mt-4 py-2 text-xs sm:mt-0 sm:ml-auto sm:text-base">
                 <div class="relative">
-                <ul class="relative flex w-full items-center justify-between space-x-2 sm:space-x-4">
-                    <li class="flex items-center space-x-3 text-left sm:space-x-4">
-                    <a class="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-200 text-xs font-semibold text-emerald-700" href="#"
-                        ><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg
-                    ></a>
-                    <span class="font-semibold text-gray-900">Carrinho</span>
-                    </li>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                    <li class="flex items-center space-x-3 text-left sm:space-x-4">
-                    <a class="flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 text-xs font-semibold text-white ring ring-gray-300 ring-offset-2" href="#">2</a>
-                    <span class="font-semibold text-gray-900">Detalhes de pagamento</span>
-                    </li>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                    <li class="flex items-center space-x-3 text-left sm:space-x-4">
-                    <a class="flex h-6 w-6 items-center justify-center rounded-full bg-gray-400 text-xs font-semibold text-white" href="#">3</a>
-                    <span class="font-semibold text-gray-500">Confirmação de pagamento</span>
-                    </li>
-                </ul>
+                  <ul class="relative flex w-full items-center justify-between space-x-2 sm:space-x-4">
+                      <li class="flex items-center space-x-3 text-left sm:space-x-4">
+                      <a class="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-200 text-xs font-semibold text-emerald-700" href="#"
+                          ><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg
+                      ></a>
+                      <span class="font-semibold text-gray-900">Carrinho</span>
+                      </li>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                      <li class="flex items-center space-x-3 text-left sm:space-x-4">
+                      <a class="flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 text-xs font-semibold text-white ring ring-gray-300 ring-offset-2" href="#">2</a>
+                      <span class="font-semibold text-gray-900">Detalhes de pagamento</span>
+                      </li>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                      <li class="flex items-center space-x-3 text-left sm:space-x-4">
+                      <a class="flex h-6 w-6 items-center justify-center rounded-full bg-gray-400 text-xs font-semibold text-white" href="#">3</a>
+                      <span class="font-semibold text-gray-500">Confirmação de pagamento</span>
+                      </li>
+                  </ul>
                 </div>
             </div>
-            </div>
+          </div>
             <div class="grid sm:px-10 lg:grid-cols-2 lg:px-20 xl:px-32">
             <div class="mt-10 bg-gray-50 px-4 pt-8 lg:mt-0">
                 <p class="text-xl font-medium">Detalhes de pagamento.</p>
@@ -153,33 +152,33 @@ const CheckoutForm = () => {
                     </select>
                     <input type="text" name="billing-zip" class="flex-shrink-0 rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="CEP" />
                 </div>
-                <div class="relative">
-                    <p class="mt-4 mb-4 text-lg font-medium">Frete</p>
+                  <div class="relative">
+                      <p class="mt-4 mb-4 text-lg font-medium">Frete</p>
 
-                    <input class="peer hidden" id="radio_1" type="radio" name="radio" checked />
-                    <span class="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
-                    <label class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_1">
-                    <img class="w-14 object-contain" src={sedex} alt="" />
-                    <div class="ml-5">
-                        <span class="mt-2 font-semibold">SEDEX</span>
-                        <p class="text-slate-500 text-sm leading-6">Entrega: 2-4 Days</p>
-                    </div>
-                    </label>
-                </div>
-                <div class="relative">
-                    <input class="peer hidden" id="radio_2" type="radio" name="radio" checked />
-                    <span class="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
-                    <label class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_2">
-                    <img class="w-14 object-contain" src={jadlog} alt="" />
-                    <div class="ml-5">
-                        <span class="mt-2 font-semibold">JadLog Transportadora</span>
-                        <p class="text-slate-500 text-sm leading-6">Delivery: 3-7 Days</p>
-                    </div>
-                    </label>
-                </div>
+                      <input class="peer hidden" id="radio_1" type="radio" name="radio" checked />
+                      <span class="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
+                      <label class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_1">
+                      <img class="w-14 object-contain" src={sedex} alt="" />
+                        <div class="ml-5">
+                            <span class="mt-2 font-semibold">SEDEX</span>
+                            <p class="text-slate-500 text-sm leading-6">Entrega: 2-4 Days</p>
+                        </div>
+                      </label>
+                  </div>
+                  <div class="relative">
+                      <input class="peer hidden" id="radio_2" type="radio" name="radio" checked />
+                      <span class="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
+                      <label class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_2">
+                      <img class="w-14 object-contain" src={jadlog} alt="" />
+                        <div class="ml-5">
+                            <span class="mt-2 font-semibold">JadLog Transportadora</span>
+                            <p class="text-slate-500 text-sm leading-6">Delivery: 3-7 Days</p>
+                        </div>
+                      </label>
+                  </div>
                 </div>               
             </div>
-            <div class="px-4 pt-8">
+            <div class="px-4 pt-8 drop-shadow-lg">
                 <p class="text-xl font-medium">Resumo do pedido</p>
                 <p class="text-gray-400">Verifique seus itens. E selecione um método de envio adequado.</p>
                 <div className="mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6">
@@ -194,7 +193,7 @@ const CheckoutForm = () => {
                     </div>
                     ))}
                 </div>
-                <form class="mt-5 grid gap-6">
+                <form class="mt-5 grid gap-6">  
                     <div class="mt-6 border-t border-b py-2">
                     <div class="flex items-center justify-between">
                         <p class="text-sm font-medium text-gray-900">Subtotal</p>
@@ -209,7 +208,9 @@ const CheckoutForm = () => {
                     <p class="text-sm font-medium text-gray-900">Total</p>
                     <p class="text-2xl font-semibold text-gray-900">R$ {(subtotal + 15).toFixed(2)}</p>
                     </div>
-                    <button class="mt-4 mb-8 w-full rounded-md bg-blue-500 px-6 py-3 font-medium text-white">Confirmar pedido</button>
+                    <Link to="/CorgiSHOP/orderdetails">
+                      <button class="mt-4 mb-8 w-full rounded-md bg-blue-500 px-6 py-3 font-medium text-white">Confirmar pedido</button>
+                    </Link>
                 </form>
             </div>
         </div>

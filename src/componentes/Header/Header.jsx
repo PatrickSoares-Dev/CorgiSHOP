@@ -94,7 +94,7 @@ const Header = () => {
             <button
               id="dropdown-button"
               data-dropdown-toggle="dropdown"
-              className="z-10 inline-flex items-center py-2.5 px-3 text-sm sm:text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
+              className="z-10 inline-flex items-center py-2.5 px-3 text-xs sm:text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
               type="button"
             >
               Todas as categorias
@@ -178,7 +178,7 @@ const Header = () => {
             onClick={toggleCart}
           />
           <span className="absolute top-0 right-0 h-5 w-5 flex items-center justify-center bg-red-500 rounded-full text-white text-xs" id="cartNumber">
-            5
+            +
           </span>
 
           {isCartOpen && <Cart />}

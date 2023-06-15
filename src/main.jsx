@@ -7,7 +7,7 @@ import { ThemeProvider } from "@material-tailwind/react";
 import ProductPages from './routes/ProductPages.jsx';
 import Checkout from './routes/Checkout.jsx';
 import Authentication from './routes/Authentication.jsx';
-
+import OrderConfirmation from './routes/OrderConfirmation.jsx';
 
 
 const router = createBrowserRouter([
@@ -26,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: '/CorgiSHOP/authentication',
     element: <Authentication />
+  },
+  {
+    path: '/CorgiSHOP/orderdetails',
+    element: <OrderConfirmation />
   }
 ]);
 

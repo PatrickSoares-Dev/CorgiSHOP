@@ -32,7 +32,7 @@ export default function Cart() {
 
     products.forEach((product) => {
       const existingItem = cartItems.find((item) => item.id === product.id);
-      const color = 'unica';
+      const color = 'Unica';
 
       if (existingItem) {
         existingItem.quantity += 1;
@@ -61,9 +61,7 @@ export default function Cart() {
 
     console.log('Quantidade de produtos:', count);
     console.log('Quantidade total:', totalQuantity);
-  }, [products]);
 
-  useEffect(() => {
     const prices = products.map((product) => parseFloat(product.valorProduto));
     const total = prices.reduce((accumulator, currentPrice) => accumulator + currentPrice, 0);
     setSubtotal(total);
@@ -166,7 +164,7 @@ export default function Cart() {
                       <div className="mt-6">
                         <a
                           href="/CorgiSHOP/checkout"
-                          className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                          className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-blue-700"
                         >
                           Comprar
                         </a>
@@ -176,7 +174,7 @@ export default function Cart() {
                           Ou{" "}
                           <button
                             type="button"
-                            className="font-medium text-indigo-600 hover:text-indigo-500"
+                            className="font-medium text-blue-500 hover:text-blue-700"
                             onClick={() => setOpen(false)}
                           >
                             Continuar comprando

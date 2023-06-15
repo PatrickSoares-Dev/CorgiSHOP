@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Banner01 from '../../assets/img/Banner01.png';
 import Banner02 from '../../assets/img/Banner02.png';
 
+
 const Banner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
@@ -29,7 +30,7 @@ const Banner = () => {
   return (
     <div className="sliderAx h-full w-screen m-5 overflow-hidden max-w-screen-4xl">
       <div className="flex max-w-screen-6xl">
-        <div className="w-8/12 min-w-70 max-w-screen-4xl border-2 mr-8">
+        <div className="w-8/12 min-w-70 max-w-screen-4xl border-2 mr-8 drop-shadow-lg">
           {slides.map((slide, index) => (
             <div
               key={index}
@@ -47,7 +48,7 @@ const Banner = () => {
           ))}
         </div>
 
-        <div className="w-4/12 max-w-screen-1xl mr-12 border-4">
+        <div className="w-4/12 max-w-screen-1xl mr-12 border-2 drop-shadow-xl">
           <div className="bg-gray-200 h-96">
             <img
               src={Banner02}
