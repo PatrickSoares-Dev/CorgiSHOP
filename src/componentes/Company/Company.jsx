@@ -1,15 +1,17 @@
 import React from "react";
-import chalesco from "../../assets/img/Marcas/chalesco.jpg";
-import golden from "../../assets/img/Marcas/Golden_.jpg";
-import kong from "../../assets/img/Marcas/KONG.jpg";
-import gpet from "../../assets/img/Marcas/Logo_2GPet.jpg";
-import keldog from "../../assets/img/Marcas/Logo_Keldog.jpg";
-import pedigree from "../../assets/img/Marcas/Logo_Pedigree.jpg";
-import whiskas from "../../assets/img/Marcas/Logo_Whiskas.jpg";
-import spin from "../../assets/img/Marcas/marca_editada.jpg";
-import prmeier from "../../assets/img/Marcas/Prmeier.jpg";
-import purina from "../../assets/img/Marcas/Purina.jpg";
-import reserva from "../../assets/img/Marcas/Reserva.jpg";
+import chalesco from "../../assets/img/Marcas/chalesco.png";
+import golden from "../../assets/img/Marcas/golden.png";
+import kong from "../../assets/img/Marcas/kong.png";
+import gpet from "../../assets/img/Marcas/2gpet.png";
+import keldog from "../../assets/img/Marcas/kelson.png";
+import pedigree from "../../assets/img/Marcas/pedigre.png";
+import whiskas from "../../assets/img/Marcas/whiskas.png";
+import spin from "../../assets/img/Marcas/spin.png";
+import prmeier from "../../assets/img/Marcas/premier.png";
+import purina from "../../assets/img/Marcas/purina.png";
+import reserva from "../../assets/img/Marcas/reserva.png";
+import natiulus from "../../assets/img/Marcas/natiulus.png";
+
 
 
 const CompanySection = () => {
@@ -24,7 +26,7 @@ const CompanySection = () => {
         
         <div className="order-1">
             <img
-            className="h-auto max-w-full rounded-lg"
+            className="h-auto max-w-full rounded-lg align-center center"
             src={whiskas}
             alt=""
             />
@@ -102,7 +104,7 @@ const CompanySection = () => {
         <div className="order-12">
             <img
             className="h-auto max-w-full rounded-lg"
-            src={chalesco}
+            src={natiulus}
             alt=""
             />
         </div>
