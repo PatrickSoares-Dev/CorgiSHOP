@@ -28,9 +28,9 @@ const Banner = () => {
   };
 
   return (
-    <div className="sliderAx h-full w-screen m-5 overflow-hidden max-w-screen-4xl">
-      <div className="flex max-w-screen-6xl">
-        <div className="w-8/12 min-w-70 max-w-screen-4xl border-2 mr-8 drop-shadow-lg">
+    <div className="container xl:mx-auto 2xl:mx-auto 4xl:mx-auto lg:max-w-screen-2xl mt-4 rounded-lg">
+      <div className="flex max-w-screen-6xl rounded-lg">
+        <div className="w-8/12 min-w-70 max-w-screen-4xl border-2 mr-8 ml-4 drop-shadow-lg rounded-lg">
           {slides.map((slide, index) => (
             <div
               key={index}
@@ -48,8 +48,8 @@ const Banner = () => {
           ))}
         </div>
 
-        <div className="w-4/12 max-w-screen-1xl mr-12 border-2 drop-shadow-xl">
-          <div className="bg-gray-200 h-96">
+        <div className="w-4/12 max-w-screen-1xl mr-4 border-2 drop-shadow-xl rounded-lg">
+          <div className="bg-gray-200 h-96 rounded-lg">
             <img
               src={Banner02}
               alt="Slide estático"

@@ -32,7 +32,7 @@ export default function Cart() {
 
     products.forEach((product) => {
       const existingItem = cartItems.find((item) => item.id === product.id);
-      const color = 'Unica';
+      const color = 'unica';
 
       if (existingItem) {
         existingItem.quantity += 1;
@@ -61,7 +61,9 @@ export default function Cart() {
 
     console.log('Quantidade de produtos:', count);
     console.log('Quantidade total:', totalQuantity);
+  }, [products]);
 
+  useEffect(() => {
     const prices = products.map((product) => parseFloat(product.valorProduto));
     const total = prices.reduce((accumulator, currentPrice) => accumulator + currentPrice, 0);
     setSubtotal(total);

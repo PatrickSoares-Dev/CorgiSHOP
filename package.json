@@ -28,7 +28,9 @@
     "react-transition-group": "^4.4.5",
     "sequelize": "^6.32.0",
     "sequelize-cli": "^6.6.1",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "typeface-poppins": "^1.1.13",
+    "typeface-roboto": "^1.1.13"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

@@ -73,22 +73,21 @@ const Product = () => {
   };
 
   const settings = {
-  className: 'overflow-hidden', // Adicione as classes de margem aqui
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  vertical: false,
-  prevArrow: <PrevArrow />,
-  nextArrow: <NextArrow />,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 4,
+    className: 'overflow-hidden mx-4 w-full', // Adicione as classes de margem aqui
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    vertical: false,
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+        },
       },
-    },
-  ],
-};
-
+    ],
+  };
 
   const getEmailFromLocalStorage = () => {
     const email = localStorage.getItem('email');
@@ -135,26 +134,24 @@ const Product = () => {
   }, [cartProductId]);
 
   return (
-    <div className="w-full max-w-screen-2xl mx-auto">
-      <div className="max-w-lg text-center sm:text-left ml-4 border-s-4 border-blue-400">
-        <h2 className="ml-4 text-2xl text-black sm:text-2xl md:text-4xl mb-12">
+    <div className="container xl:mx-auto 2xl:mx-auto 4xl:mx-auto lg:max-w-screen-2xl">
+      <div className="max-w-lg text-center sm:text-left ml-8 border-s-4 border-blue-400">
+        <h2 className="ml-4 text-2xl text-black sm:text-2xl md:text-4xl mb-12 font-roboto font-semibold" id="fonte-personalizada">
           Novos produtos
         </h2>
       </div>
 
-      <div className="relative px-6">
+      <div className="relative mx-4">
         <Slider {...settings}>
-
-        {Array.isArray(products) ? (
+          {Array.isArray(products) ? (
             products.map((product) => (
               <div
                 key={product.id}
-                className={`group my-12 mb-6 flex w-48 flex-col overflow-hidden rounded-lg border border-gray-100 bg-gray-100 drop-shadow-md`}
-                style={{ marginRight: '8px' }} // Adicione o estilo inline para definir a margem à direita
+                className={`group my-12 mb-6  flex w-24 flex-col overflow-hidden rounded-lg border border-gray-100 bg-gray-100 drop-shadow-md`}
+                style={{ marginRight: '0.5rem' }} // Adicione o estilo inline para definir a margem à direita
               >
-
                 <a
-                  className="relative mx-4 mt-3 flex h-60 overflow-hidden rounded-xl"
+                  className="relative mx-2 mt-3 flex h-60 overflow-hidden rounded-xl"
                   href={`/CorgiSHOP/productpages?id=${product.id}`}
                 >
                   <span id="id">{product.id}</span>
@@ -200,52 +197,46 @@ const Product = () => {
                       <>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="mr-2 h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth="2"
+                          className="mr-2 h-4 w-4 animate-bounce"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
                         >
                           <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                            fillRule="evenodd"
+                            d="M10 3a7 7 0 00-5.573 11.329l-1.309 4.14A1 1 0 004.109 20h11.782a1 1 0 00.992-1.531l-1.31-4.14A7.001 7.001 0 0010 3zm0 13a6 6 0 100-12 6 6 0 000 12zm-1-6a1 1 0 012 0v2a1 1 0 11-2 0v-2zm1-7a5 5 0 11-4.546 2.846l1.163-.388A4 4 0 1010 4.472V2z"
+                            clipRule="evenodd"
                           />
                         </svg>
-                        Produto adicionado ao carrinho
+                        Adicionado
                       </>
                     ) : isError ? (
                       <>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="mr-2 h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth="2"
+                          className="mr-2 h-4 w-4"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
                         >
                           <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M10 14H6a2 2 0 01-2-2v-4a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2h-4l-2 4h-4v0zm6-4h-2"
+                            fillRule="evenodd"
+                            d="M10 3a7 7 0 00-5.573 11.329l-1.309 4.14A1 1 0 004.109 20h11.782a1 1 0 00.992-1.531l-1.31-4.14A7.001 7.001 0 0010 3zm0 13a6 6 0 100-12 6 6 0 000 12zm-1-6a1 1 0 012 0v2a1 1 0 11-2 0v-2zm1-7a5 5 0 11-4.546 2.846l1.163-.388A4 4 0 1010 4.472V2z"
+                            clipRule="evenodd"
                           />
                         </svg>
-                        Não foi possível adicionar ao carrinho
+                        Erro
                       </>
                     ) : (
                       <>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="mr-2 h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth="2"
+                          className="mr-2 h-4 w-4"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
                         >
                           <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                            fillRule="evenodd"
+                            d="M10 3a7 7 0 00-5.573 11.329l-1.309 4.14A1 1 0 004.109 20h11.782a1 1 0 00.992-1.531l-1.31-4.14A7.001 7.001 0 0010 3zm0 13a6 6 0 100-12 6 6 0 000 12zm-1-6a1 1 0 012 0v2a1 1 0 11-2 0v-2zm1-7a5 5 0 11-4.546 2.846l1.163-.388A4 4 0 1010 4.472V2z"
+                            clipRule="evenodd"
                           />
                         </svg>
                         Adicionar ao carrinho
@@ -256,7 +247,7 @@ const Product = () => {
               </div>
             ))
           ) : (
-            <div>Nenhum produto encontrado.</div>
+            <p>Nenhum produto encontrado</p>
           )}
         </Slider>
       </div>

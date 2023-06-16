@@ -9,7 +9,7 @@ const Category = () => {
             <li>
               <a
                 href="#"
-                className="text-gray-900 dark:text-white hover:underline"
+                className="text-gray-900 dark:text-white hover:text-blue-400"
                 aria-current="page"
               >
                 Página inicial
@@ -18,7 +18,7 @@ const Category = () => {
             <li>
               <a
                 href="#"
-                className="text-gray-900 dark:text-white hover:underline"
+                className="text-gray-900 dark:text-white hover:text-blue-400"
               >
                 Roupas e vestuário
               </a>
@@ -26,7 +26,7 @@ const Category = () => {
             <li>
               <a
                 href="#"
-                className="text-gray-900 dark:text-white hover:underline"
+                className="text-gray-900 dark:text-white hover:text-blue-400"
               >
                 Brinquedos
               </a>
@@ -34,7 +34,7 @@ const Category = () => {
             <li>
               <a
                 href="#"
-                className="text-gray-900 dark:text-white hover:underline"
+                className="text-gray-900 dark:text-white hover:text-blue-400"
               >
                 Acessórios
               </a>
