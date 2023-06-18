@@ -13,7 +13,7 @@ const Product = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/product');
+        const response = await axios.get('http://3.87.243.213:8080/product');
         const data = response.data;
 
         if (data.products && Array.isArray(data.products)) {
@@ -34,7 +34,7 @@ const Product = () => {
     const { className, onClick } = props;
     return (
       <button
-        className={`${className} prev-arrow absolute top-4 left-4 z-10 bg-blue-500 rounded-full p-2 shadow-md`}
+        className={`${className} prev-arrow absolute top-4 left-4 z-10 bg-blue-500 rounded-full p-2 shadow-md hover:bg-blue-600 focus:bg-blue-600`}
         onClick={onClick}
         style={{
           width: '30px',
@@ -50,30 +50,34 @@ const Product = () => {
       </button>
     );
   };
-
+  
+  
   const NextArrow = (props) => {
     const { className, onClick } = props;
     return (
-      <button
-        className={`${className} next-arrow absolute top-4 right-4 z-2 bg-blue-500 rounded-full p-2 shadow-md`}
-        onClick={onClick}
-        style={{
-          width: '30px',
-          height: '30px',
-          borderRadius: '50%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: 'white',
-        }}
-      >
-        NEXT
-      </button>
+      <div className="group">
+        <button
+          className={`${className} next-arrow absolute top-4 right-4 z-2 bg-blue-500 rounded-full p-2 shadow-md hover:bg-blue-600 focus:bg-blue-600`}
+          onClick={onClick}
+          style={{
+            width: '30px',
+            height: '30px',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: 'white',
+          }}
+        >
+          NEXT
+        </button>
+      </div>
     );
   };
-
+  
+  
   const settings = {
-    className: 'overflow-hidden mx-4 w-full', // Adicione as classes de margem aqui
+    className: 'overflow-hidden mx-4 w-full',
     slidesToShow: 4,
     slidesToScroll: 1,
     vertical: false,
@@ -88,6 +92,8 @@ const Product = () => {
       },
     ],
   };
+  
+  
 
   const getEmailFromLocalStorage = () => {
     const email = localStorage.getItem('email');
@@ -99,7 +105,7 @@ const Product = () => {
       const email = getEmailFromLocalStorage(); // Obtenha o email do localStorage
 
       // Envie a requisição POST para a API
-      const response = await axios.post('http://localhost:8080/cart/add-cart', {
+      const response = await axios.post('http://3.87.243.213:8080/cart/add-cart', {
         email,
         productId,
       });
@@ -136,7 +142,7 @@ const Product = () => {
   return (
     <div className="container xl:mx-auto 2xl:mx-auto 4xl:mx-auto lg:max-w-screen-2xl">
       <div className="max-w-lg text-center sm:text-left ml-8 border-s-4 border-blue-400">
-        <h2 className="ml-4 text-2xl text-black sm:text-2xl md:text-4xl mb-12 font-roboto font-semibold" id="fonte-personalizada">
+        <h2 className="ml-4 text-2xl text-black sm:text-2xl md:text-4xl mb-12 font-roboto font-semibold mt-12" id="fonte-personalizada">
           Novos produtos
         </h2>
       </div>
@@ -183,7 +189,7 @@ const Product = () => {
                     </p>
                   </div>
                   <a
-                    href="#"
+                    href=""
                     className={`flex items-center justify-center text-white rounded-md px-5 py-2.5 text-center text-sm font-medium hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 ${
                       cartProductId === product.id
                         ? 'bg-green-300'

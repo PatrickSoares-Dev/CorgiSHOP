@@ -22,7 +22,7 @@ const CompanySection = () => {
             Principais marcas
             </h2>
         </div>
-      <div className="mx-8 grid grid-cols-6 gap-5">
+      <div className="mx-12 grid grid-cols-6 gap-16">
         
         <div className="order-1">
             <img

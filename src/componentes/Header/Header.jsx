@@ -12,7 +12,10 @@ const Header = () => {
 
   const getEmailFromLocalStorage = () => {
     return localStorage.getItem('email');
+  };
 
+  const handleLogout = () => {
+    localStorage.removeItem('email');
   };
 
   useEffect(() => {
@@ -74,10 +77,17 @@ const Header = () => {
               <img src={Brasil} alt="Bandeira do Brasil" className="w-7 h-5 mr-2" />
               Português (BR)
             </button>
-            <a href="/CorgiSHOP/authentication" className="flex items-center text-base ml-4 text-white">
-              <UserIcon className="h-4 mr-2 mt-0" />
-              {loginText}
-            </a>
+            {email ? (
+              <a href="/CorgiSHOP/authentication" onClick={handleLogout} className="flex items-center text-base ml-4 text-white">
+                <UserIcon className="h-4 mr-2 mt-0" />
+                Logout
+              </a>
+            ) : (
+              <a href="/CorgiSHOP/authentication" className="flex items-center text-base ml-4 text-white">
+                <UserIcon className="h-4 mr-2 mt-0" />
+                Login
+              </a>
+            )}
           </div>
         </div>
       </nav>

@@ -37,11 +37,12 @@ const AuthenticationPage = () => {
               opacity: 1,
               transform: 'translateY(0)',
               transition: 'opacity 300ms ease-in-out, transform 300ms ease-in-out',
+              margin: ''
             }}
           />
         )}
       </div>      
-      <div className='mt-4'>
+      <div className='mt-16'>
         <Footer/>
       </div>
     </div>

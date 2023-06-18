@@ -16,7 +16,7 @@ const CheckoutForm = () => {
     setUserEmail(email);
   
     axios
-      .get('http://localhost:8080/cart/get-cart', {
+      .get('http://3.87.243.213:8080/cart/get-cart', {
         params: {
           email: email,
         },

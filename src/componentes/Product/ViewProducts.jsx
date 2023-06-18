@@ -24,7 +24,7 @@ const ViewProducts = () => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/product?id=${productId}`
+          `http://3.87.243.213:8080/product?id=${productId}`
         );
         const data = response.data;
 

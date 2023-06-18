@@ -68,7 +68,7 @@ const AuthenticationForm = ({ handleToggleForm }) => {
     };
 
     try {
-      const response = await axios.post('http://localhost:8080/register', data, headers);
+      const response = await axios.post('http://3.87.243.213:8080/register', data, headers);
       setMessage(response.data.message);
       setIsSuccess(true);
     } catch (error) {
@@ -103,7 +103,7 @@ const AuthenticationForm = ({ handleToggleForm }) => {
     handleInputChange(e);
   };
   return (
-    <div className='flex justify-center items-center h-screen mt-16 mb-16'>
+    <div className='flex justify-center items-center h-screen mt-8'>
       <Card color="white" shadow="regular" className="p-4">
         <div className="flex">
           <div>

@@ -13,7 +13,7 @@ export default function Cart() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080/cart/get-cart', {
+      .get('http://3.87.243.213:8080/cart/get-cart', {
         params: {
           email: userEmail,
         },
@@ -32,7 +32,7 @@ export default function Cart() {
 
     products.forEach((product) => {
       const existingItem = cartItems.find((item) => item.id === product.id);
-      const color = 'unica';
+      const color = 'Unica';
 
       if (existingItem) {
         existingItem.quantity += 1;
@@ -68,6 +68,35 @@ export default function Cart() {
     const total = prices.reduce((accumulator, currentPrice) => accumulator + currentPrice, 0);
     setSubtotal(total);
   }, [products]);
+
+  const handleRemoveFromCart = (productId) => {
+    const updatedProducts = products.map((product) => {
+      if (product.id === productId) {
+        return {
+          ...product,
+          quantity: product.quantity - 1,
+        };
+      }
+      return product;
+    });
+  
+    setProducts(updatedProducts);
+    setRemovedProductId(productId);
+  
+    axios
+      .delete('http://3.87.243.213:8080/cart/delete-cart', {
+        params: {
+          email: userEmail,
+          productId: productId,
+        },
+      })
+      .then(() => {
+        console.log('Produto removido com sucesso!');
+      })
+      .catch((error) => {
+        console.error('Ocorreu um erro ao remover o produto:', error);
+      });
+  };
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -114,46 +143,50 @@ export default function Cart() {
                       </div>
 
                       <div className="mt-8">
-                        <div className="flow-root">
-                          <ul role="list" className="-my-6 divide-y divide-gray-200">
-                            {products.map((product) => (
-                              <li key={product.id} className="flex py-6">
-                                <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                  <img
-                                    src={product.imagem1}
-                                    alt={product.imagem2}
-                                    className="h-full w-full object-cover object-center"
-                                  />
-                                </div>
-
-                                <div className="ml-4 flex flex-1 flex-col">
-                                  <div>
-                                    <div className="flex justify-between text-base font-medium text-gray-900">
-                                      <h3>
-                                        <a href="">{product.nome}</a>
-                                      </h3>
-                                      <p className="ml-4">{product.valorProduto}</p>
-                                    </div>
-                                    <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+                        {products.length === 0 ? (
+                          <p className="text-center text-gray-500 mt-32">Você não possui produtos no carrinho</p>
+                        ) : (
+                          <div className="flow-root">
+                            <ul role="list" className="-my-6 divide-y divide-gray-200">
+                              {products.map((product) => (
+                                <li key={product.id} className="flex py-6">
+                                  <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                    <img
+                                      src={product.imagem1}
+                                      alt={product.imagem2}
+                                      className="h-full w-full object-cover object-center"
+                                    />
                                   </div>
-                                  <div className="flex flex-1 items-end justify-between text-sm">
-                                    <p className="text-gray-500">Quantidade {product.quantity}</p>
 
+                                  <div className="ml-4 flex flex-1 flex-col">
+                                    <div>
+                                      <div className="flex justify-between text-base font-medium text-gray-900">
+                                        <h3>
+                                          <a href="">{product.nome}</a>
+                                        </h3>
+                                        <p className="ml-4">{product.valorProduto}</p>
+                                      </div>
+                                      <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+                                    </div>
+                                    <div className="flex flex-1 items-end justify-between text-sm">
+                                      <p className="text-gray-500">Quantidade {product.quantity}</p>
 
-                                    <div className="flex">
-                                      <button
-                                        type="button"
-                                        className="font-medium text-indigo-600 hover:text-indigo-500"
-                                      >
-                                        Remover
-                                      </button>
+                                      <div className="flex">
+                                        <button
+                                          type="button"
+                                          className="font-medium text-indigo-600 hover:text-indigo-500"
+                                          onClick={() => handleRemoveFromCart(product.id)}
+                                        >
+                                          Remover
+                                        </button>
+                                      </div>
                                     </div>
                                   </div>
-                                </div>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
                       </div>
                     </div>
 

@@ -94,6 +94,33 @@ router.get("/get-cart", async (req, res) => {
   }
 });
 
+router.delete("/delete-cart", async (req, res) => {
+  try {
+    const { email, productId } = req.query;
+
+    // Buscar o usuário pelo e-mail na tabela "Users"
+    const user = await db.users.findOne({ where: { email } });
+    if (!user) {
+      return res.status(404).json({ error: "Usuário não encontrado." });
+    }
+
+    // Buscar o carrinho do usuário com base no ID do usuário e no ID do produto
+    const cartItem = await db.carts.findOne({ where: { userId: user.id, productId } });
+    if (!cartItem) {
+      return res.status(404).json({ error: "Produto não encontrado no carrinho." });
+    }
+
+    // Excluir o produto do carrinho
+    await cartItem.destroy();
+
+    return res.status(200).json({ message: "Produto removido do carrinho com sucesso." });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ error: "Erro ao excluir produto do carrinho." });
+  }
+});
+
+
 
 
 

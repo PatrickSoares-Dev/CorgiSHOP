@@ -27,29 +27,42 @@ const Login = ({ handleToggleForm }) => {
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true); // Define o estado de carregamento para true
-  
+  const handleLogin = async () => {
     try {
-      // Adiciona um atraso de 2 segundos
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-  
-      const response = await axios.post('http://localhost:8080/login', {
+      const response = await axios.post('http://3.87.243.213:8080/login', {
         email,
         password,
       });
-      setError('');
-      localStorage.setItem('email', email);
-      setEmail('');
-      navigate('/CorgiSHOP');
+
+      const { error, message } = response.data;
+
+      if (error) {
+        setError(message);
+      } else if (message === 'Usuário logado com sucesso.') {
+        setError('');
+        localStorage.setItem('email', email);
+        setEmail('');
+        navigate('/CorgiSHOP');
+      } else {
+        setError('Email ou senha inválidos.');
+      }
     } catch (error) {
       console.log(localStorage.email);
-      navigate('/CorgiSHOP');
-      setError(error.response.data.message);
+      setError('Email ou senha inválidos.');
     } finally {
-      setIsLoading(false); // Define o estado de carregamento para false
+      setIsLoading(false);
     }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    localStorage.removeItem('email'); // Limpa o email do local storage antes do login
+
+    // Adiciona um atraso de 2 segundos para simular o tempo de resposta da API
+    setTimeout(() => {
+      handleLogin();
+    }, 2000);
   };
 
   return (
@@ -64,11 +77,11 @@ const Login = ({ handleToggleForm }) => {
               Digite seus dados para fazer login.
             </Typography>
             <form
-              className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96"
+              className="mt-4 mb-2 w-80 max-w-screen-lg sm:w-96"
               onSubmit={handleSubmit}
             >
               {error && (
-                <div className="text-red-500 text-sm mb-4 p-2 rounded bg-yellow-700">
+                <div className="text-black text-sm mb-6 p-2 rounded bg-red-300">
                   {error}
                 </div>
               )}
