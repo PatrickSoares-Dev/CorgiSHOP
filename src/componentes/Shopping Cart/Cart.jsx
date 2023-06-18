@@ -10,6 +10,7 @@ export default function Cart() {
   const [open, setOpen] = useState(true);
   const [subtotal, setSubtotal] = useState(0);
   const [products, setProducts] = useState([]);
+  const [removedProductId, setRemovedProductId] = useState(null);
 
   useEffect(() => {
     axios
