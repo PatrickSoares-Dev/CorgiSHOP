@@ -9,6 +9,7 @@ import {
 import corgiImage from '../../assets/img/catlogin.png';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { baseUrl } from '../../config';
 
 const Login = ({ handleToggleForm }) => {
   const [email, setEmail] = useState('');
@@ -29,7 +30,7 @@ const Login = ({ handleToggleForm }) => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://3.87.243.213:8080/login', {
+      const response = await axios.post(`${baseUrl}/login`, {
         email,
         password,
       });

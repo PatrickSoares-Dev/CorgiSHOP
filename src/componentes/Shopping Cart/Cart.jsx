@@ -3,6 +3,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { ShoppingCartIcon } from '@heroicons/react/24/solid';
 import axios from 'axios';
+import { baseUrl } from '../../config';
 
 const userEmail = localStorage.getItem('email');
 
@@ -14,7 +15,7 @@ export default function Cart() {
 
   useEffect(() => {
     axios
-      .get('http://3.87.243.213:8080/cart/get-cart', {
+      .get(`${baseUrl}/cart/get-cart`, {
         params: {
           email: userEmail,
         },
@@ -32,18 +33,17 @@ export default function Cart() {
     const cartItems = [];
 
     products.forEach((product) => {
-      const existingItem = cartItems.find((item) => item.id === product.id);
-      const color = 'Unica';
+      const existingItemIndex = cartItems.findIndex((item) => item.id === product.id);
 
-      if (existingItem) {
-        existingItem.quantity += 1;
+      if (existingItemIndex !== -1) {
+        cartItems[existingItemIndex].quantity += 1;
       } else {
         cartItems.push({
           id: product.id,
           nome: product.nome,
           imagem1: product.imagem1,
           valorProduto: product.valorProduto,
-          color: color,
+          color: 'Unica',
           quantity: 1,
         });
       }
@@ -65,8 +65,11 @@ export default function Cart() {
   }, [products]);
 
   useEffect(() => {
-    const prices = products.map((product) => parseFloat(product.valorProduto));
-    const total = prices.reduce((accumulator, currentPrice) => accumulator + currentPrice, 0);
+    const total = products.reduce(
+      (accumulator, product) =>
+        accumulator + product.valorProduto * product.quantity,
+      0
+    );
     setSubtotal(total);
   }, [products]);
 
@@ -79,13 +82,13 @@ export default function Cart() {
         };
       }
       return product;
-    });
-  
+    }).filter((product) => product.quantity > 0);
+
     setProducts(updatedProducts);
     setRemovedProductId(productId);
-  
+
     axios
-      .delete('http://3.87.243.213:8080/cart/delete-cart', {
+      .delete(`${baseUrl}/cart/delete-cart`, {
         params: {
           email: userEmail,
           productId: productId,
@@ -165,7 +168,7 @@ export default function Cart() {
                                         <h3>
                                           <a href="">{product.nome}</a>
                                         </h3>
-                                        <p className="ml-4">{product.valorProduto}</p>
+                                        <p className="ml-2 text-sm">R$ {product.valorProduto}</p>
                                       </div>
                                       <p className="mt-1 text-sm text-gray-500">{product.color}</p>
                                     </div>

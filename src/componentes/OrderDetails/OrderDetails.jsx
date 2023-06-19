@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import sedex from '../../assets/img/sedex.jpg';
 import jadlog from '../../assets/img/jadlog.jpg';
+import { baseUrl } from '../../config';
 
 const OrderDetails = () => {
   const [userEmail, setUserEmail] = useState('');
@@ -13,14 +14,13 @@ const OrderDetails = () => {
     setUserEmail(email);
 
     axios
-      .get('http://3.87.243.213:8080/cart/get-cart', {
+      .get(`${baseUrl}/cart/get-cart`, {
         params: {
           email: email,
         },
       })
       .then((response) => {
         const products = response.data.products;
-        setProducts(products);
         createCart(products);
       })
       .catch((error) => {
@@ -32,10 +32,10 @@ const OrderDetails = () => {
     const cartItems = [];
 
     products.forEach((product) => {
-      const existingItem = cartItems.find((item) => item.id === product.id);
+      const existingItemIndex = cartItems.findIndex((item) => item.id === product.id);
 
-      if (existingItem) {
-        existingItem.quantity += 1;
+      if (existingItemIndex !== -1) {
+        cartItems[existingItemIndex].quantity += 1;
       } else {
         cartItems.push({
           id: product.id,
@@ -86,22 +86,24 @@ const OrderDetails = () => {
         <div className="flex flex-col justify-start items-start w-full  md:space-y-6 xl:space-y-8">
           <p className="text-lg md:text-xl font-semibold leading-6 xl:leading-5 text-gray-800">Carrinho</p>
           <div className="w-full rounded-md bg-white drop-shadow-lg">
-            {products.map((product) => (
-              <div key={product.id} className="flex flex-col justify-start items-start w-full space-y-2 md:space-y-6 xl:space-y-8 ">
-                <div className="flex flex-col justify-start items-start px-8 w-full">
-                  <div className="md:mt-2 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-2 xl:space-x-4 w-full border-b-2 border-gray-200 mb-2">
-                    <img src={product.imagem1} alt={product.nome} className="w-24 h-24 md:w-16 md:h-24 xl:w-40 xl:h-24 object-contain" />
-                    <div className="flex flex-col justify-start items-start">
-                      <p className="text-base md:text-lg font-semibold leading-6 text-gray-800">{product.nome}</p>
-                      <p className="text-sm md:text-base font-medium leading-5 text-gray-600">Quantidade: {product.quantity}</p>
-                      <p className="text-sm md:text-base font-medium leading-5 text-gray-600">Valor unitário: R${product.valorProduto}</p>
-                      <p className="text-base md:text-lg font-semibold leading-8 text-gray-800 mt-2">Subtotal: R${(product.valorProduto * product.quantity).toFixed(2)}</p>
+            <div className="w-full rounded-md bg-white drop-shadow-lg">
+              {products.map((product) => (
+                <div key={product.id} className="flex flex-col justify-start items-start w-full space-y-2 md:space-y-6 xl:space-y-8 ">
+                  <div className="flex flex-col justify-start items-start px-8 w-full">
+                    <div className="md:mt-2 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-2 xl:space-x-4 w-full border-b-2 border-gray-200 mb-2">
+                      <img src={product.imagem1} alt={product.nome} className="w-24 h-24 md:w-16 md:h-24 xl:w-40 xl:h-24 object-contain" />
+                      <div className="flex flex-col justify-start items-start">
+                        <p className="text-base md:text-lg font-semibold leading-6 text-gray-800">{product.nome}</p>
+                        <p className="text-sm md:text-base font-medium leading-5 text-gray-600">Quantidade: {product.quantity}</p>
+                        <p className="text-sm md:text-base font-medium leading-5 text-gray-600">Valor unitário: R${product.valorProduto}</p>
+                        <p className="text-base md:text-lg font-semibold leading-8 text-gray-800 mt-2">Subtotal: R${(product.valorProduto * product.quantity).toFixed(2)}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>          
+              ))}
+            </div>      
+          </div>              
         </div>
         <div className="bg-gray-50 w-full xl:w-96 flex justify-between items-center md:items-start px-4 py-6 md:p-6 xl:p-8 flex-col">
           <h3 className="text-xl font-semibold leading-5 text-gray-800">Cliente</h3>
@@ -159,8 +161,8 @@ const OrderDetails = () => {
           <h3 className="text-xl font-semibold leading-5 text-gray-800">Frete</h3>
           <div className="flex justify-between items-start w-full">
             <div className="flex justify-center items-center space-x-4">
-              <div class="w-8 h-8">
-                <img class="w-full h-full" alt="logo" src={jadlog} />
+              <div className="w-8 h-8">
+                <img className="w-full h-full" alt="logo" src={jadlog} />
               </div>
               <div className="flex flex-col justify-start items-center">
                 <p className="text-lg leading-6 font-semibold text-gray-800">
@@ -170,12 +172,20 @@ const OrderDetails = () => {
                 </p>
               </div>
             </div>
-            <p className="text-lg font-semibold leading-6 text-gray-800">R$15.00</p>
+            <div className="flex flex-col justify-start items-center">
+              <p className="text-sm leading-5 text-gray-800">Estimativa de entrega</p>
+              <p className="text-base leading-4 text-gray-600">23 de junho - 27 de junho</p>
+            </div>
           </div>
-          <div className="w-full flex justify-center items-center">
-            <code className="text-blue-500 font-medium text-lg">Código de rastreio: CG143426645BR</code>
-         </div>
-
+          <div className="flex justify-center items-center w-full">
+            <div className="w-full justify-center">
+              <input
+                type="text"
+                value="Código de rastreio: SL123456789BR"
+                className="w-full border-2 border-gray-200 mb-2 p-2.5 text-center"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

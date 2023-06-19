@@ -3,6 +3,9 @@ import Slider from 'react-slick';
 import axios from 'axios';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { baseUrl } from '../../config';
+import { ShoppingCartIcon} from "@heroicons/react/24/solid";
+
 
 const Product = () => {
   const [products, setProducts] = useState([]);
@@ -13,7 +16,7 @@ const Product = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://3.87.243.213:8080/product');
+        const response = await axios.get(`${baseUrl}/product`);
         const data = response.data;
 
         if (data.products && Array.isArray(data.products)) {
@@ -105,7 +108,7 @@ const Product = () => {
       const email = getEmailFromLocalStorage(); // Obtenha o email do localStorage
 
       // Envie a requisição POST para a API
-      const response = await axios.post('http://3.87.243.213:8080/cart/add-cart', {
+      const response = await axios.post(`${baseUrl}/cart/add-cart`, {
         email,
         productId,
       });
@@ -189,7 +192,7 @@ const Product = () => {
                     </p>
                   </div>
                   <a
-                    href=""
+                    href="#"
                     className={`flex items-center justify-center text-white rounded-md px-5 py-2.5 text-center text-sm font-medium hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 ${
                       cartProductId === product.id
                         ? 'bg-green-300'
@@ -197,58 +200,29 @@ const Product = () => {
                         ? 'bg-red-300'
                         : 'bg-blue-700'
                     }`}
-                    onClick={() => handleAddToCart(product.id)} // Chame a função handleAddToCart com o ID do produto como parâmetro
+                    onClick={(e) => {
+                      e.preventDefault(); // Impede o redirecionamento ao clicar no link
+                      handleAddToCart(product.id);
+                    }}
                   >
                     {cartProductId === product.id ? (
                       <>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="mr-2 h-4 w-4 animate-bounce"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10 3a7 7 0 00-5.573 11.329l-1.309 4.14A1 1 0 004.109 20h11.782a1 1 0 00.992-1.531l-1.31-4.14A7.001 7.001 0 0010 3zm0 13a6 6 0 100-12 6 6 0 000 12zm-1-6a1 1 0 012 0v2a1 1 0 11-2 0v-2zm1-7a5 5 0 11-4.546 2.846l1.163-.388A4 4 0 1010 4.472V2z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        <ShoppingCartIcon className="mr-2 h-4 w-4" /> {/* Ícone de carrinho */}
                         Adicionado
                       </>
                     ) : isError ? (
                       <>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="mr-2 h-4 w-4"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10 3a7 7 0 00-5.573 11.329l-1.309 4.14A1 1 0 004.109 20h11.782a1 1 0 00.992-1.531l-1.31-4.14A7.001 7.001 0 0010 3zm0 13a6 6 0 100-12 6 6 0 000 12zm-1-6a1 1 0 012 0v2a1 1 0 11-2 0v-2zm1-7a5 5 0 11-4.546 2.846l1.163-.388A4 4 0 1010 4.472V2z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        <ShoppingCartIcon className="mr-2 h-4 w-4" /> {/* Ícone de carrinho */}
                         Erro
                       </>
                     ) : (
                       <>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="mr-2 h-4 w-4"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10 3a7 7 0 00-5.573 11.329l-1.309 4.14A1 1 0 004.109 20h11.782a1 1 0 00.992-1.531l-1.31-4.14A7.001 7.001 0 0010 3zm0 13a6 6 0 100-12 6 6 0 000 12zm-1-6a1 1 0 012 0v2a1 1 0 11-2 0v-2zm1-7a5 5 0 11-4.546 2.846l1.163-.388A4 4 0 1010 4.472V2z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                        <ShoppingCartIcon className="mr-2 h-4 w-4" /> {/* Ícone de carrinho */}
                         Adicionar ao carrinho
                       </>
                     )}
                   </a>
+
                 </div>
               </div>
             ))

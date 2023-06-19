@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import sedex from '../../assets/img/sedex.jpg';
 import jadlog from '../../assets/img/jadlog.jpg';
+import { baseUrl } from '../../config';
 
 
 const CheckoutForm = () => {
@@ -16,7 +17,7 @@ const CheckoutForm = () => {
     setUserEmail(email);
   
     axios
-      .get('http://3.87.243.213:8080/cart/get-cart', {
+      .get(`${baseUrl}/cart/get-cart`, {
         params: {
           email: email,
         },
@@ -57,16 +58,21 @@ const CheckoutForm = () => {
   useEffect(() => {
     const count = products.length;
     let totalQuantity = 0;
-  
+
     products.forEach((product) => {
       totalQuantity += product.quantity;
     });
-  
+
     console.log('Quantidade de produtos:', count);
     console.log('Quantidade total:', totalQuantity);
-  
-    const prices = products.map((product) => parseFloat(product.valorProduto));
-    const total = prices.reduce((accumulator, currentPrice) => accumulator + currentPrice, 0);
+  }, [products]);
+
+  useEffect(() => {
+    const total = products.reduce(
+      (accumulator, product) =>
+        accumulator + product.valorProduto * product.quantity,
+      0
+    );
     setSubtotal(total);
   }, [products]);
 

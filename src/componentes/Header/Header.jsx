@@ -100,7 +100,7 @@ const Header = () => {
         </a>
 
         <div className="flex">
-          <div className="relative w-72">
+          <div className="relative w-96 ml-32">
             <button
               id="dropdown-button"
               data-dropdown-toggle="dropdown"
@@ -154,7 +154,7 @@ const Header = () => {
               </ul>
             </div>
           </div>
-          <div className="relative w-full mr-12">
+          <div className="relative w-full mr-48">
             <input
               type="search"
               id="search-dropdown"

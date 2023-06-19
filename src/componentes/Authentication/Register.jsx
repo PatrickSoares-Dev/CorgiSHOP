@@ -4,6 +4,7 @@ import {
 } from "@material-tailwind/react";
 import corgiImage from '../../assets/img/dogregister.png';
 import axios from 'axios';
+import { baseUrl } from '../../config';
 
 const AuthenticationForm = ({ handleToggleForm }) => {
   const [name, setName] = useState('');
@@ -68,7 +69,7 @@ const AuthenticationForm = ({ handleToggleForm }) => {
     };
 
     try {
-      const response = await axios.post('http://3.87.243.213:8080/register', data, headers);
+      const response = await axios.post(`${baseUrl}/register`, data, headers);
       setMessage(response.data.message);
       setIsSuccess(true);
     } catch (error) {

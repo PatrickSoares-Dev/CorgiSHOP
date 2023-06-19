@@ -1,19 +1,17 @@
 import { useLocation } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
 import productsJson from "../../../produtos.json";
+import { baseUrl } from "../../config";
 
 const ViewProducts = () => {
   const location = useLocation();
   const productId = new URLSearchParams(location.search).get("id");
   const [product, setProduct] = useState(null);
   const [mainImage, setMainImage] = useState(null);
-  const productJSON = productsJson.produtos.find(
-    (item) => item.ID === productId
-  );
+  const productJSON = productsJson.produtos.find((item) => item.ID === productId);
   const [email, setEmail] = useState("");
-  console.log(productJSON);
+  const [isButtonClicked, setIsButtonClicked] = useState(false); // Estado para controlar a animação do botão
 
   useEffect(() => {
     const emailFromLocalStorage = localStorage.getItem("email");
@@ -23,9 +21,7 @@ const ViewProducts = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(
-          `http://3.87.243.213:8080/product?id=${productId}`
-        );
+        const response = await axios.get(`${baseUrl}/product?id=${productId}`);
         const data = response.data;
 
         if (data.products) {
@@ -34,7 +30,6 @@ const ViewProducts = () => {
         } else {
           console.error("Produto não encontrado");
         }
-        console.log(data);
       } catch (error) {
         console.error(error);
       }
@@ -45,12 +40,15 @@ const ViewProducts = () => {
 
   const handleAddToCart = async () => {
     try {
-      const response = await axios.post("http://localhost:8080/cart/add-cart", {
+      const response = await axios.post(`${baseUrl}/cart/add-cart`, {
         email,
         productId,
       });
       console.log(response.data);
       // Faça o que for necessário após o envio dos dados para a API
+
+      // Atualiza o estado para exibir a animação do botão
+      setIsButtonClicked(true);
     } catch (error) {
       console.error(error);
       // Lide com erros de forma apropriada
@@ -64,6 +62,7 @@ const ViewProducts = () => {
   if (!product) {
     return null; // ou mostrar um indicador de carregamento
   }
+
   return (
     <section class="py-4 sm:py-2 bg-gray-50">
       <div class="container mx-auto px-8 py-8">
@@ -308,12 +307,15 @@ const ViewProducts = () => {
                   </h1>
                   <span class="text-base">/a vista</span>
                 </div>
-
+                
                 <button
                   type="button"
                   onClick={handleAddToCart}
-                  class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-teal-500 bg-none px-4 py-3 text-center text-sm font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-teal-700"
+                  className={`inline-flex items-center justify-center rounded-md border-2 border-transparent bg-teal-500 bg-none px-4 py-3 text-center text-sm font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-teal-700 ${
+                    isButtonClicked ? "bg-green-300" : ""
+                  }`}
                 >
+                  {
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="shrink-0 mr-3 h-5 w-5"
@@ -327,9 +329,11 @@ const ViewProducts = () => {
                       stroke-linejoin="round"
                       d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                     />
-                  </svg>
+                  </svg>}
                   Adicionar ao carrinho
                 </button>
+  
+  
               </div>
 
               <ul class="mt-4 space-y-2">
