@@ -1,4 +1,4 @@
-<a href="https://aimeos.org/">
+<a href="">
     <img src="./src//assets//img/Logo3.png" alt="CorgiSHOP" title="CorgiSHOP" align="right" height="60" />
 </a>
 
