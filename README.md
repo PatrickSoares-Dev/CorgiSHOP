@@ -15,7 +15,7 @@
 
 :star: Forneça estrelas se gostou do projeto.
 
-![CorgiSHOP](https://github.com/PatrickSoares-Dev/CorgiSHOP) é um projeto de e-commerce desenvolvido em React e Node.js, criado especialmente para amantes de pets e seus companheiros de quatro patas. Este aplicativo web foi desenvolvido a fins educacionais para hospedagem de servidores e banco de dados na AWS.
+[CorgiSHOP](https://github.com/PatrickSoares-Dev/CorgiSHOP) é um projeto de e-commerce desenvolvido em React e Node.js, criado especialmente para amantes de pets e seus companheiros de quatro patas. Este aplicativo web foi desenvolvido a fins educacionais para hospedagem de servidores e banco de dados na AWS.
 
 Clique [aqui](https://github.com/PatrickSoares-Dev/CorgiSHOP/blob/main/src/assets/img/Plano%20de%20projeto.pdf) para verificar o Plano de Projeto do CorgiSHOP com Termo de abertura de projeto (TAP), Escopo de projeto e Protótipo.
 
