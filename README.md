@@ -1,5 +1,5 @@
 <a href="">
-    <img src="./src/assets//img/Logo3.png" alt="CorgiSHOP" title="CorgiSHOP" align="right" height="60" />
+    <img src="./src/assets/img/Logo.png" alt="CorgiSHOP" title="CorgiSHOP" align="right" height="60" />
 </a>
 
 # CorgiSHOP E-Commerce React
@@ -45,7 +45,7 @@ Antes de executar o projeto, você precisará ter as seguintes dependências ins
 
 Certifique-se de instalar todas as dependências mencionadas acima antes de prosseguir.
 
-## Configuração do Banco de dados {#configuração-do-banco-de-dados}
+## Configuração do Banco de dados
 
 Antes de executar o projeto, você precisará configurar as seguintes informações:
 
