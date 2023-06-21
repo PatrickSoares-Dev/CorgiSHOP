@@ -1,8 +1,17 @@
 <a href="">
-    <img src="./src//assets//img/Logo3.png" alt="CorgiSHOP" title="CorgiSHOP" align="right" height="60" />
+    <img src="./src/assets//img/Logo3.png" alt="CorgiSHOP" title="CorgiSHOP" align="right" height="60" />
 </a>
 
 # CorgiSHOP E-Commerce React
+
+[![React](https://img.shields.io/badge/React-16.13.1-blue.svg)](https://reactjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-2.0.4-blue.svg)](https://tailwindcss.com/)
+[![Node.js](https://img.shields.io/badge/Node.js-14.15.4-green.svg)](https://nodejs.org/)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0.23-blue.svg)](https://www.mysql.com/)
+[![Sequelize](https://img.shields.io/badge/Sequelize-6.6.2-blue.svg)](https://sequelize.org/)
+[![Axios](https://img.shields.io/badge/Axios-0.21.1-blue.svg)](https://axios-http.com/)
+[![Vite](https://img.shields.io/badge/Vite-2.4.4-green.svg)](https://vitejs.dev/)
+[![Nodemon](https://img.shields.io/badge/Nodemon-2.0.13-green.svg)](https://nodemon.io/)
 
 :star: Forneça estrelas se gostou do projeto.
 
@@ -10,15 +19,16 @@
 
 ![corgishop-frontend](./src/assets/img/tela_inicial.png)
 
+
 ## Índice
 
 - [Instalação](#instalação)
     - [Dependências](#dependências)    
 - [Configuração do Banco de Dados](#configuração-do-banco-de-dados)
-    - [Tabelas do banco de dados](#banco)    
+    - [Tabelas do banco de dados](#tabelas-do-banco-de-dados) 
 - [Inicialização do projeto](#inicializar-o-projeto)
 - [Documentação API](#documentacao-api)
-- [Imagens e funcionalidades](#imagens-e-funcionalides)
+- [Imagens e funcionalidades do projeto](#imagens-e-funcionalidades)
 - [Licença](#licença)
 
 ## Instalação 
@@ -35,7 +45,7 @@ Antes de executar o projeto, você precisará ter as seguintes dependências ins
 
 Certifique-se de instalar todas as dependências mencionadas acima antes de prosseguir.
 
-## Configuração do Banco de dados
+## Configuração do Banco de dados {#configuração-do-banco-de-dados}
 
 Antes de executar o projeto, você precisará configurar as seguintes informações:
 
@@ -587,16 +597,95 @@ Ao importar o arquivo de configuração e sua variável, é possível utilizar a
 *Nota:* Nessa parte você verá algumas páginas e suas funcionalidades dentro do projeto. Para uma maior vizualiação veja o vídeo de demonstração.
 [Vídeo de demonstração](https://youtube.com/watch?v=)
 
-### Página inicial
+### Páginas completas
 
-A página inicial é composta por Header, Banner, Products, BannerPromotion, Categories, Newsletter e Footer.
+<details>
+<summary>Página inicial</summary>
 
-![Tela_inicial](./src//assets/img/tela_inicial.png)
+![corgishop-frontend](./src/assets/img/pagina_inicialcompleta.png)
 
-* A sessão de produtos está sendo criada dinamicamente com o response do endpoint `/product`, então ao adicionar um novo produto no banco, também será adicionado a sessão de produtos.
+</details>
+
+<details>
+<summary>Página carrinho</summary>
+
+![corgishop-frontend](./src/assets/img/tela_cart.png)
+
+</details>
+
+<details>
+<summary>Página View Products</summary>
+
+![corgishop-frontend](./src/assets/img/pagina_viewproductscompleta.png)
+
+</details>
+
+<details>
+<summary>Página Login e Registro</summary>
+
+![corgishop-frontend](./src/assets/img/pagina_loginompleta.png)
+![corgishop-frontend](./src/assets/img/pagina_registercompleta.png)
+
+</details>
+
+<details>
+<summary>Página Checkout</summary>
+
+![corgishop-frontend](./src/assets/img/pagina_checkoutcompleta.png)
+![corgishop-frontend](./src/assets/img/pagina_checkoutcompleta2.png)
+
+</details>
+
+
+### Funcionalidades
+
+
+#### Componente de produtos
 
 ![Produtos](./src/assets/img/produtos.png)
 
+O componente Product exibe uma seção de produtos em um carrossel dinâmico. Ele busca os produtos através do endpoint `/product` e exibe as informações como nome, imagem e valor. Os usuários podem adicionar produtos ao carrinho clicando em um botão. O componente oferece uma experiência interativa para visualizar e adicionar produtos ao carrinho.
+
+---
+
+#### Componente de carrinho
+
+![Carrinhos](./src/assets/img/tela_cart.png)
+
+
+A funcionalidade do carrinho é a seguinte: ao clicar em "Adicionar ao Carrinho", a função puxa o `email` do usuário e o `product_id` para enviar uma requisição para o endpoint `/add-cart`, que adiciona o produto ao carrinho do cliente. Ao clicar no ícone do carrinho, um carrinho lateral é aberto, exibindo a imagem, nome e valor de todos os produtos. Além disso, é realizada a soma dos valores dos produtos, exibindo o valor total sem considerar o frete.
+
+---
+
+#### Tela ViewProducts
+
+![ViewProducts](./src/assets/img/tela_viewproducts.png)
+
+A Tela ViewProducts é uma página de visualização de produtos dinâmica. Ele recebe o `product_id` por meio da URL e cria a página com base nas informações desse produto específico. Ele usa o React Router para obter o `product_id` da URL e, em seguida, faz uma solicitação para obter os detalhes do produto usando o ID. A página exibe o nome, avaliação, tamanho e imagens do produto. Também permite adicionar o produto ao carrinho por meio de uma solicitação POST para uma API. A página é renderizada de forma dinâmica, exibindo as informações corretas para cada produto com base no ID fornecido.
+
+---
+
+#### Tela Checkout
+
+![Checkout](./src/assets/img/tela_checkout.png)
+
+O código acima é um componente CheckoutForm. O componente é responsável por exibir um formulário de checkout, permitindo que os usuários insiram os detalhes de pagamento e endereço de entrega. Ele utiliza hooks como useState e useEffect para gerenciar o estado e os efeitos colaterais necessários para atualizar as informações do carrinho de compras e exibir os dados corretos aos usuários referentes ao response do endpoint `/get-cart`. 
+
+Abaixo temos a segunda parte do Checkout que é a confirmação de pedido, que mostra que o pedido foi efetuado, com seu código de rastrio e informações da conta do usuário.
+
+![Checkout](./src/assets/img/tela_checkout2.png)
+
+---
+
+#### Tela de Autenticaão
+
+![Login](./src/assets/img/pagina_loginompleta.png)
+
+A página de autenticação fornecido consiste em dois componentes principais: Login e AuthenticationPage. O componente Login lida com a lógica de autenticação, incluindo o envio de requisições à API e a validação dos dados de login. Ele também lida com o armazenamento do email no localStorage após o login bem-sucedido. O componente AuthenticationPage é responsável por exibir o formulário de login e registro, permitindo que o usuário alterne entre eles.
+
+![Login](./src/assets/img/pagina_registercompleta.png)
+
+---
 
 ## License
 
